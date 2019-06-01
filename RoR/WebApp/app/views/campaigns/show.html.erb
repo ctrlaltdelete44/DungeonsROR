@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>View Campaign</title>
+    <meta charset="utf-8"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+	  <%= stylesheet_link_tag "global" %>
+	  <%= stylesheet_link_tag "cards" %>
+	  <%= stylesheet_link_tag "messagebox" %>
+      </head>
+
+    <body>
+		<h1 class='banner-title'>
+			<%= @campaign.title %>
+		</h1>
+        <div class ='root'>
+			<div class='card'>
+				<h2 class='title'>
+					<%= @campaign.summary %>
+				</h2>
+			</div>
+
+        <button class='button' value='Delete Campaign'>Delete Campaign</button>
+        <img src='../resources/loading.svg' class='loading hidden' alt='Loading...'/>
+        </div>
+    </body>
+</html>

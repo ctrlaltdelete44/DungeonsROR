@@ -1,0 +1,48 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14-May-2019, 13:22:05
+    Author     : Anthony
+*/
+@import url('https://fonts.googleapis.com/css?family=Exo:200');
+
+* {
+    box-sizing: border-box
+}
+
+
+.banner-title, .title, .text-content {
+    text-align: center;
+    font-family: 'Exo', sans-serif;
+    display: block;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 25px;    
+}
+
+.text-content {
+    font-size: 20px;
+}
+
+.banner-title {
+    font-size:90px;
+}
+
+.loading {
+    display: block;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.button {
+    width: 80%;
+    font-size: 1.3rem;
+}

@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>New Campaign</title>
+    <meta charset="utf-8"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+	  <%= stylesheet_link_tag "global" %>
+	  <%= stylesheet_link_tag "form" %>
+	  <%= stylesheet_link_tag "messagebox" %>
+  </head>
+
+    <body>
+        <h1 class='banner-title'>Add Campaign</h1>
+		<%= form_with scope: :campaign, url: campaigns_path, local: true do |form| %>
+                <p class='title'>
+					<%= form.label :title %><br>
+					<%= form.text_field :title %>
+				</p>
+
+				<p class='title'>
+					<%= form.label :summary %><br>
+					<%= form.text_area :summary %>
+				</p>
+
+				<p>
+					<%= form.submit %>
+				</p>
+		<% end %>
+        <img src='../resources/loading.svg' class='loading hidden' alt='Loading...'/>
+    </body>
+</html>
