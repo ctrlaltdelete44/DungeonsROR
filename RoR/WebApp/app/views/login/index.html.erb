@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Login</title>
+    <meta charset="utf-8"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <link rel="stylesheet" href="styles/global.css"/>
+        <link rel="stylesheet" href="styles/login.css"/>
+        <link rel="stylesheet" href="styles/messagebox.css"/>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="scripts/jquery.session.js"></script>
+
+        <script src="scripts/resource_string.js"></script>
+        <script src="scripts/element_creators/error_message_creator.js"></script>
+        <script src="scripts/pagefunctions/login_controller.js"></script>
+
+      </head>
+  <body>
+    <h1 class="banner_title">Login</h1>
+
+    <form id="login_form" method ="post">
+      <div id='error_parent'>
+        <input type="text" placeholder="Username" id="txt_username" name="username"></input>
+            </div>
+      <img src="resources/loading.svg" class="loading hidden" id="login_loading" alt="Loading..."/>
+      <input type="submit" value="Login" id='btn_login' class="submit"/>
+    </form>
+
+
+  </body>
+</html>
