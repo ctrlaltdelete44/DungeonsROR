@@ -19,6 +19,9 @@
 				<p class='text-content'> <%= campaign.summary %> </p> <br>
 				<p class='link'> <%= link_to 'Show', campaign_path(campaign) %> </p>
 				<p class='link'> <%= link_to 'Edit', edit_campaign_path(campaign) %> </p>
+				<p class='link'> <%= link_to 'Delete', campaign_path(campaign),
+										method: :delete,
+										data: {confirm: 'Are you sure?'} %> </p>
 			</div>
 		<% end %>
 		</root>
