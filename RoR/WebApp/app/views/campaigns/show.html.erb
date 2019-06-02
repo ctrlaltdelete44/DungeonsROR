@@ -12,25 +12,21 @@
 		<h1 class='banner-title'>
 			<%= @campaign.title %>
 		</h1>
-		<div class='header-container'>
-			<p class='link header-item'>
-				<%= link_to 'My Campaigns', campaigns_path %>
-			</p>
-			<p class='link header-item'>
-				<%= link_to 'New Campaign', new_campaign_path %>
-			</p>
-		</div>
+		<%= render 'navbar' %>
+
         <div class ='root'>
 			<div class='card'>
 				<h2 class='title'>
 					<%= @campaign.summary %>
 				</h2>
 			</div>
-
-        <button class='button' value='Delete Campaign'>Delete Campaign</button>
+		<p class='link'>
+			<%= link_to 'Edit', edit_campaign_path(@campaign) %>
+		</p>
 		<p class='link'>
 			<%= link_to 'Back', campaigns_path %>
 		</p>
+		
         <img src='../resources/loading.svg' class='loading hidden' alt='Loading...'/>
         </div>
     </body>

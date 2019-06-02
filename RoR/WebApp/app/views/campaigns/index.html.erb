@@ -10,21 +10,15 @@
 
     <body>
         <h1 class='banner-title'>All Campaigns</h1>
-		<div class='header-container'>
-			<p class='link header-item'>
-				<%= link_to 'My Campaigns', campaigns_path %>
-			</p>
-			<p class='link header-item'>
-				<%= link_to 'New Campaign', new_campaign_path %>
-			</p>
-		</div>
+		<%= render 'navbar' %>
 		
 		<div class='root'>
 		<% @campaigns.each do |campaign| %>
 			<div class='card'>
 				<h2 class='title'> <%= campaign.title %> </h2>
-				<p class='text-content'> <%= campaign.summary %> </p>
-				<%= link_to 'Show', campaign_path(campaign) %>
+				<p class='text-content'> <%= campaign.summary %> </p> <br>
+				<p class='link'> <%= link_to 'Show', campaign_path(campaign) %> </p>
+				<p class='link'> <%= link_to 'Edit', edit_campaign_path(campaign) %> </p>
 			</div>
 		<% end %>
 		</root>

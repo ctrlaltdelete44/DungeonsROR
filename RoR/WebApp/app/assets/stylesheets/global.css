@@ -37,6 +37,7 @@ and open the template in the editor.
     font-size: 25px;
     text-decoration: none;
     opacity: 0.5;
+    display: inline;
 }
 
 .link:hover {
