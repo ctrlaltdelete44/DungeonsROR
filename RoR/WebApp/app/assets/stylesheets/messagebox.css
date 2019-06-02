@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Anthony
 */
 
-.message-box {
+.error-box, .success-box {
     border-style: solid;
     border-width: 2px;
     width: auto;
@@ -17,7 +17,7 @@ and open the template in the editor.
     height: 2rem;
 }
 
-.message-contents {
+.error-msg, .success-msg {
     margin: 0px;
     font-family: Yu Gothic;
     font-size: 1.2rem;
@@ -26,8 +26,6 @@ and open the template in the editor.
 .error-box {
     background-color: #ffaaaa;
     border-color: #ff4242;
-    
-    
 }
 .error-msg {
     color: #aa0000;

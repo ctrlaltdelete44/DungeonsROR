@@ -10,6 +10,15 @@
 
     <body>
         <h1 class='banner-title'>Add Campaign</h1>
+		<div class='header-container'>
+			<p class='link header-item'>
+				<%= link_to 'My Campaigns', campaigns_path %>
+			</p>
+			<p class='link header-item'>
+				<%= link_to 'New Campaign', new_campaign_path %>
+			</p>
+		</div>
+		<div class='root'>
 		<%= form_with scope: :campaign, url: campaigns_path, local: true do |form| %>
                 <p class='title'>
 					<%= form.label :title %><br>
@@ -21,10 +30,27 @@
 					<%= form.text_area :summary %>
 				</p>
 
+		<% if @campaign.errors.any? %>
+			<p class='title error-msg'>
+				<%= pluralize(@campaign.errors.count, "error") %> prohibited this campaign from being saved:
+			</p>
+			<% @campaign.errors.full_messages.each do |msg| %>
+			<div class='error-box'>
+				<p class='error-msg'>
+					<%= msg %>
+				</p>
+			</div>
+			<% end %>
+		<% end %>
+
 				<p>
 					<%= form.submit %>
 				</p>
+				<p class='link'>
+					<%= link_to 'Back', campaigns_path %>
+				</p>
 		<% end %>
         <img src='../resources/loading.svg' class='loading hidden' alt='Loading...'/>
+		</div>
     </body>
 </html>

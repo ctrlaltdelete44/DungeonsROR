@@ -1,17 +1,15 @@
 <html>
   <head>
-    <title>View Campaign</title>
+    <title>New Campaign</title>
     <meta charset="utf-8"></meta>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 	  <%= stylesheet_link_tag "global" %>
 	  <%= stylesheet_link_tag "cards" %>
 	  <%= stylesheet_link_tag "messagebox" %>
-      </head>
+  </head>
 
     <body>
-		<h1 class='banner-title'>
-			<%= @campaign.title %>
-		</h1>
+        <h1 class='banner-title'>All Campaigns</h1>
 		<div class='header-container'>
 			<p class='link header-item'>
 				<%= link_to 'My Campaigns', campaigns_path %>
@@ -20,18 +18,15 @@
 				<%= link_to 'New Campaign', new_campaign_path %>
 			</p>
 		</div>
-        <div class ='root'>
+		
+		<div class='root'>
+		<% @campaigns.each do |campaign| %>
 			<div class='card'>
-				<h2 class='title'>
-					<%= @campaign.summary %>
-				</h2>
+				<h2 class='title'> <%= campaign.title %> </h2>
+				<p class='text-content'> <%= campaign.summary %> </p>
+				<%= link_to 'Show', campaign_path(campaign) %>
 			</div>
-
-        <button class='button' value='Delete Campaign'>Delete Campaign</button>
-		<p class='link'>
-			<%= link_to 'Back', campaigns_path %>
-		</p>
-        <img src='../resources/loading.svg' class='loading hidden' alt='Loading...'/>
-        </div>
+		<% end %>
+		</root>
     </body>
 </html>
