@@ -1,0 +1,50 @@
+<html>
+  <head>
+	  <meta charset="utf-8"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+	  <%= stylesheet_link_tag "global" %>
+	  <%= stylesheet_link_tag "form" %>
+	  <%= stylesheet_link_tag "messagebox" %>
+  </head>
+
+    <body>       
+		<%= form_with model: @account, local: true do |form| %>
+                <p class='title'>
+					<%= form.label :username %><br>
+					<%= form.text_field :username %>
+				</p>
+
+				<p class='title'>
+					<%= form.label :email %><br>
+					<%= form.text_field :email %>
+				</p>
+
+				<p class='title'>
+					<%= form.label :display_name %><br>
+					<%= form.text_field :display_name %>
+				</p>
+
+				<p class='title'>
+					<%= form.label :password %><br>
+					<%= form.password_field :password %>
+				</p>
+
+		<% if @account.errors.any? %>
+			<p class='title error-msg'>
+				<%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:
+			</p>
+			<% @account.errors.full_messages.each do |msg| %>
+			<div class='error-box'>
+				<p class='error-msg'>
+					<%= msg %>
+				</p>
+			</div>
+			<% end %>
+		<% end %>
+
+				<p>
+					<%= form.submit %>
+				</p>
+		<% end %>
+    </body>
+</html>
