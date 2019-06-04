@@ -1,0 +1,27 @@
+<html>
+	<head>
+    <title>Login</title>
+    <meta charset="utf-8"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+	  <%= stylesheet_link_tag "global" %>
+	  <%= stylesheet_link_tag "login" %>
+	  <%= stylesheet_link_tag "messagebox" %>
+	</head>
+  <body>
+    <h1 class='banner-title'>Login</h1>
+	<div class='root'>
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :username, class: 'title' %>
+      <%= f.text_field :username, class: 'text-input' %> <br>
+
+      <%= f.submit "Log in", class: 'button-input' %>
+    <% end %>
+
+	  <p class='link'>
+		<%= link_to 'Create Account', new_account_path %>
+	  </p>
+	  </div>
+
+  </body>
+</html>

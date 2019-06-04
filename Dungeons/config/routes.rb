@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'login/index'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   resources :accounts
 
-  root 'login#index'
+  root 'sessions#new'
 end
