@@ -48,4 +48,12 @@ class AccountTest < ActiveSupport::TestCase
     @account.save
     assert_not duplicate.valid?
   end
+
+  test "email addresses should be saved as lowercase" do
+    mixed_case = "aNtHoNy@gMaIl.CoM"
+    @account.email = mixed_case
+    @account.save
+
+    assert_equal mixed_case.downcase, @account.reload.email
+  end
 end
