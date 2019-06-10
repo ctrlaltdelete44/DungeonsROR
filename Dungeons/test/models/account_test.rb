@@ -2,7 +2,8 @@ require 'test_helper'
 
 class AccountTest < ActiveSupport::TestCase
   def setup
-    @account = Account.new(display_name: "Example", email: "account@example.com")
+    @account = Account.new(display_name: "Example", email: "account@example.com",
+                                                            password: "password1", password_confirmation: "password1")
   end
 
   test "should be valid" do
@@ -55,5 +56,15 @@ class AccountTest < ActiveSupport::TestCase
     @account.save
 
     assert_equal mixed_case.downcase, @account.reload.email
+  end
+
+  test "password should be present" do
+    @account.password = @account.password_confirmation = "  " * 8
+    assert_not @account.valid?
+  end
+
+  test "password should have minimum length" do
+    @account.password = @account.password_confirmation = "a" * 7
+    assert_not @account.valid?
   end
 end
