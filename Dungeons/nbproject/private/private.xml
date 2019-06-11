@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/db/migrate/20190610201340_add_password_digest_to_accounts.rb</file>
+            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/test/fixtures/accounts.yml</file>
+            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/db/migrate/20190610193022_add_index_to_accounts_email.rb</file>
+            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/app/assets/stylesheets/global.css</file>
+            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/Gemfile</file>
+            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/app/models/account.rb</file>
+            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/test/models/account_test.rb</file>
+        </group>
+    </open-files>
+</project-private>
