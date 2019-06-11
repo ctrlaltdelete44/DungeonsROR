@@ -8,10 +8,9 @@ and open the template in the editor.
     Author     : davie
 */
 
-.footer-container {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-color: #2E2F30;
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
 }

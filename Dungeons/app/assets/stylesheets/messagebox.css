@@ -14,7 +14,6 @@ and open the template in the editor.
     width: auto;
     margin: 0 auto;
     text-align: center;
-    height: 2rem;
 }
 
 .error-msg, .success-msg {

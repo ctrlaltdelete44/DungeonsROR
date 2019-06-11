@@ -1,0 +1,9 @@
+<%= gravatar_for @account.email, size: 80 %>
+<p class='title'> Display Name: </p>
+<p class='text-content'> <%= @account.display_name %> </p>
+
+<p class='title'> Email: </p>
+<p class='text-content'> <%= @account.email %> </p>
+<br>
+
+<p class='text-content'> Your account was created at: <%= @account.created_at %>! </p>

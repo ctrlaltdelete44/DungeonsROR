@@ -7,13 +7,6 @@ and open the template in the editor.
     Created on : 15-May-2019, 16:29:23
     Author     : Anthony
 */
-
-.root {
-    max-width: 70%;
-    margin: 0 auto;
-    text-align: center;
-}
-
 .card {
     box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
     margin: 1rem;
