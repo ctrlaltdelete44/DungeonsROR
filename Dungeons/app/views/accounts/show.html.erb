@@ -1,3 +1,4 @@
+<% provide(:title, 'Account Information') %>
 <%= gravatar_for @account.email, size: 80 %>
 <p class='title'> Display Name: </p>
 <p class='text-content'> <%= @account.display_name %> </p>

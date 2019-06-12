@@ -8,9 +8,9 @@ def new
 end
 
 def create
-    @account = Account.new()
+    @account = Account.new(account_params)
     if @account.save
-        #successful save
+        redirect_to @account
     else
         render 'new'
     end

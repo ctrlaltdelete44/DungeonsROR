@@ -3,13 +3,38 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/db/migrate/20190610201340_add_password_digest_to_accounts.rb</file>
-            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/test/fixtures/accounts.yml</file>
-            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/db/migrate/20190610193022_add_index_to_accounts_email.rb</file>
-            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/app/assets/stylesheets/global.css</file>
-            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/Gemfile</file>
-            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/app/models/account.rb</file>
-            <file>file:/C:/Users/davie/Desktop/Repos/dungeonsror/dungeons/test/models/account_test.rb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/test/models/account_test.rb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/test/fixtures/accounts.yml</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/assets/stylesheets/footer.css</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/assets/stylesheets/accounts.scss</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/views/layouts/_footer.html.erb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/views/shared/_error_messages.html.erb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/test/integration/accounts_signup_test.rb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/views/layouts/_navigation.html.erb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/assets/stylesheets/messagebox.css</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/assets/stylesheets/form.css</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/views/static_pages/help.html.erb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/assets/stylesheets/login.css</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/assets/stylesheets/header.css</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/assets/stylesheets/application.css</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/assets/stylesheets/users.scss</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/helpers/accounts_helper.rb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/views/layouts/_rails_default.html.erb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/config/routes.rb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/models/account.rb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/views/static_pages/about.html.erb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/views/static_pages/home.html.erb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/views/accounts/show.html.erb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/Gemfile</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/db/migrate/20190610201340_add_password_digest_to_accounts.rb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/assets/stylesheets/text.css</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/config/initializers/assets.rb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/views/layouts/application.html.erb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/controllers/accounts_controller.rb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/db/migrate/20190610193022_add_index_to_accounts_email.rb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/views/accounts/new.html.erb</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/assets/stylesheets/cards.css</file>
+            <file>file:/C:/Users/davie/Desktop/repos/DungeonsROR/Dungeons/app/assets/stylesheets/static_pages.scss</file>
         </group>
     </open-files>
 </project-private>

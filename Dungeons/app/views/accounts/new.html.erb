@@ -1,11 +1,9 @@
-<% stylesheet_link_tag "form" %>
-<% stylesheet_link_tag "cards" %>
 <% provide(:title, 'Sign Up') %>
 
 <div class='root'>
 <div class='card'>
 <div class='form'>
-    <%= form_for(@account) do |f|%>
+    <%= form_for(@account, url: signup_path) do |f|%>
         <%= render 'shared/error_messages' %>
 
         <%= f.label :display_name, class: 'title' %>
