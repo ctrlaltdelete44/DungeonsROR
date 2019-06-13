@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Anthony
 */
 
-.error-box, .success-box {
+.success-box, .info-box, .warning-box, .danger-box {
     border-style: solid;
     border-width: 2px;
     width: auto;
@@ -16,18 +16,10 @@ and open the template in the editor.
     text-align: center;
 }
 
-.error-msg, .success-msg {
+.success-msg, .info-msg, .warning-msg, .danger-msg {
     margin: 0px;
     font-family: Yu Gothic;
     font-size: 1.2rem;
-}
-
-.error-box {
-    background-color: #ffaaaa;
-    border-color: #ff4242;
-}
-.error-msg {
-    color: #aa0000;
 }
 
 .success-box {
@@ -37,4 +29,28 @@ and open the template in the editor.
 
 .success-msg {
     color: #00a846;
+}
+
+.info-box {
+    background-color: #97befc;
+    border-color: #4f73ad;
+}
+.info-msg {
+    color: #35507a;
+}
+
+.warning-box {
+    background-color: #f0f99f;
+    border-color: #daea46;
+}
+.warning-msg {
+    color: #757c33;
+}
+
+.danger-box {
+    background-color: #ffaaaa;
+    border-color: #ff4242;
+}
+.danger-msg {
+    color: #aa0000;
 }

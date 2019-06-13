@@ -10,6 +10,7 @@ end
 def create
     @account = Account.new(account_params)
     if @account.save
+        flash[:success] = "Account created!"
         redirect_to @account
     else
         render 'new'

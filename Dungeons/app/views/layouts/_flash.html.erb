@@ -1,0 +1,3 @@
+<% flash.each do |message_type, message| %>
+    <div class='<%= message_type %>-box'><p class='<%= message_type %>-msg'><%= message %></p></div>
+<% end %>

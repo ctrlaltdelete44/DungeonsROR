@@ -3,8 +3,8 @@
         The form could not be saved due to the following <%= pluralize(@account.errors.count, "error") %>
     </h2>
     <% @account.errors.full_messages.each do |msg| %>
-        <div class='error-box'>
-            <p class='error-msg'><%= msg %></p>
+        <div class='danger-box'>
+            <p class='danger-msg'><%= msg %></p>
          </div>
     <% end %>
 <% end %>
