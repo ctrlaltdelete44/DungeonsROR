@@ -2,5 +2,11 @@
     <%= link_to "Home", root_path, class: "header-item" %>
     <%= link_to "About", about_path, class: "header-item"  %>
     <%= link_to "Help", help_path, class: "header-item"  %>
-    <%= link_to "Login", login_path, class: "header-item"  %>
+    <% if logged_in? %>
+        <%= link_to "Profile", current_account, class: "header-item" %>
+        <%= link_to "Settings", '#', class: "header-item" %>
+        <%= link_to "Log out", logout_path, method: :delete, class: "header-item" %>
+    <% else %>
+        <%= link_to "Login", login_path, class: "header-item"  %>
+    <% end %>
 </header>

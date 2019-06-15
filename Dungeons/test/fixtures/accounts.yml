@@ -1,3 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-#empty for now
+ferris:
+        display_name: Ferris Bueller
+        email: ferrisbueller@gmail.com
+        password_digest: <%= Account.digest('password')  %>
