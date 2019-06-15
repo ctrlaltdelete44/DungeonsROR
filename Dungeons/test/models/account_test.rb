@@ -67,4 +67,8 @@ class AccountTest < ActiveSupport::TestCase
     @account.password = @account.password_confirmation = "a" * 7
     assert_not @account.valid?
   end
+
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @account.authenticated?('')
+  end
 end

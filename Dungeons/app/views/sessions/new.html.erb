@@ -9,6 +9,11 @@
       <%= f.label :password, class: 'title' %>
       <%= f.password_field :password, class: 'text-input' %> <br>
 
+      <%= f.label :remember_me, class: 'text-content' do %>
+            <%= f.check_box :remember_me %>
+            <span>Remember me on this computer</span>
+      <% end %>
+
       <%= f.submit "Log in", class: 'button-input' %>
     <% end %>
     <%= link_to "Sign Up", signup_path, class: "link" %>
