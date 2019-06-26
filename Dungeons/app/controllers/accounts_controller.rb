@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+before_action :logged_in_user#, only: [:edit, :update]
 def show
     @account = Account.find(params[:id])
 end
@@ -38,4 +39,10 @@ private
                                                                            :password, :password_confirmation)
     end
 
+	def logged_in_user
+		unless logged_in?
+			flash[:danger] = "Please log in to access that page"
+			redirect_to login_url
+		end
+	end
 end

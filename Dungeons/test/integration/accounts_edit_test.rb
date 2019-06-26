@@ -6,6 +6,8 @@ class AccountsEditTest < ActionDispatch::IntegrationTest
   end
 
   test "unsuccessful edit" do
+	log_in_as(@account)
+
 	get edit_account_path(@account)
 	assert_template 'accounts/edit'
 	patch account_path(@account), params: { account: { display_name: "",
@@ -17,6 +19,8 @@ class AccountsEditTest < ActionDispatch::IntegrationTest
   end
 
   test "successful edit" do
+	log_in_as(@account)
+
 	get edit_account_path(@account)
 	assert_template 'accounts/edit'
 	display_name = "Captain Ya Boi"
