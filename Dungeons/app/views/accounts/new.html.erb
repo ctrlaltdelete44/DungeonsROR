@@ -1,25 +1,8 @@
 <% provide(:title, 'Sign Up') %>
+<% provide(:button_text, 'Create Account') %>
 
 <div class='root'>
 <div class='card'>
-<div class='form'>
-    <%= form_for(@account, url: signup_path) do |f|%>
-        <%= render 'shared/error_messages' %>
-
-        <%= f.label :display_name, class: 'title' %>
-        <%= f.text_field :display_name, class: 'text-input' %>
-
-         <%= f.label :email, class: 'title' %>
-         <%= f.email_field :email, class: 'text-input' %>
-
-         <%= f.label :password, class: 'title' %>
-        <%= f.password_field :password, class: 'text-input' %>
-
-         <%= f.label :password_confirmation, "Confirm password", class: 'title' %>
-         <%= f.password_field :password_confirmation, class: 'text-input' %>
-
-          <%= f.submit "Create my account", class: 'submit'%>
-    <% end %>
-</div>
+	<%= render 'form' %>
 </div>
 </div>

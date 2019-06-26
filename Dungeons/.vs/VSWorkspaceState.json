@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\helpers",
+    "\\test",
+    "\\test\\controllers",
+    "\\test\\helpers",
+    "\\test\\integration"
+  ],
+  "SelectedNode": "\\test\\helpers\\.keep",
+  "PreviewInSolutionExplorer": false
+}

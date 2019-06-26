@@ -18,6 +18,10 @@ def create
     end
 end
 
+def edit
+	@account = Account.find(params[:id])
+end
+
 private
     def account_params
         params.require(:account).permit(:display_name, :email, 
