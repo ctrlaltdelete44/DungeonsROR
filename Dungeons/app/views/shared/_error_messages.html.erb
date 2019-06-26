@@ -1,5 +1,5 @@
 <% if @account.errors.any? %>
-    <h2 class='error-msg'>
+    <h2 class='danger-msg'>
         The form could not be saved due to the following <%= pluralize(@account.errors.count, "error") %>
     </h2>
     <% @account.errors.full_messages.each do |msg| %>

@@ -1,5 +1,5 @@
 <div class='form'>
-    <%= form_for(@account, url: signup_path) do |f|%>
+    <%= form_for(@account) do |f|%>
         <%= render 'shared/error_messages' %>
 
         <%= f.label :display_name, class: 'title' %>
