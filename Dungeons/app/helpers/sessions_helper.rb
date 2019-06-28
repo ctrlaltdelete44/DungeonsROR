@@ -39,6 +39,10 @@ def current_account
     end
 end
 
+def current_account?(account)
+	account == current_account
+end
+
 #returns boolean whether account is logged in
 def logged_in?
     !current_account.nil?

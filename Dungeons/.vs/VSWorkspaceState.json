@@ -2,12 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\app",
+    "\\app\\assets",
+    "\\app\\assets\\stylesheets",
     "\\app\\helpers",
+    "\\app\\models",
+    "\\app\\views",
+    "\\app\\views\\shared",
     "\\test",
     "\\test\\controllers",
-    "\\test\\helpers",
-    "\\test\\integration"
+    "\\test\\fixtures"
   ],
-  "SelectedNode": "\\test\\helpers\\.keep",
+  "SelectedNode": "\\app\\controllers\\accounts_controller.rb",
   "PreviewInSolutionExplorer": false
 }

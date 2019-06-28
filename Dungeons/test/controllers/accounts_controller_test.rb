@@ -3,6 +3,7 @@ require 'test_helper'
 class AccountsControllerTest < ActionDispatch::IntegrationTest
   def setup
 	@account = accounts(:ferris)
+	@other_account = accounts(:axel)
   end
 
   test "should redirect edit when not logged in" do
