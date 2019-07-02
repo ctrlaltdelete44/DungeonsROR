@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
-before_action :logged_in_user,	only: [:index, :edit, :update]
+before_action :logged_in_user,	only: [:index, :edit, :update, :destroy]
 before_action :correct_user,	only: [:edit, :update]
+before_action :admin_user,		only: [:destroy]
 
 def index
 	@accounts = Account.paginate(page: params[:page])
@@ -39,10 +40,16 @@ def update
 	end
 end
 
+def destroy
+	Account.find(params[:id]).destroy
+	flash[:success] = "Account deleted"
+	redirect_to accounts_url
+end
+
 private
     def account_params
-        params.require(:account).permit(:display_name, :email, 
-                                                                           :password, :password_confirmation)
+        params.require(:account).permit(:display_name, :email,
+                                        :password, :password_confirmation)
     end
 
 	def logged_in_user
@@ -56,5 +63,9 @@ private
 	def correct_user
 		@account = Account.find(params[:id])
 		redirect_to(root_url) unless current_account?(@account)
+	end
+
+	def admin_user
+		redirect_to(root_url) unless current_account.admin?
 	end
 end

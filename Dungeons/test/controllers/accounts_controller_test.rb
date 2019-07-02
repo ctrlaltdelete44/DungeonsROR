@@ -23,4 +23,28 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
 	get accounts_path
 	assert_redirected_to login_url
   end
+
+  test "should not allow admin attribute to be updated via the web" do
+	log_in_as @other_account
+	assert_not @other_account.admin?
+	patch account_path(@other_account), params: { account: { password: @other_account.password,
+														     password_confirmation: @other_account.password,
+															 admin: true } }
+	assert_not @other_account.reload.admin?
+  end
+
+  test "should redirect destroy when not logged in" do
+	assert_no_difference 'Account.count' do
+		delete account_path(@account)
+	end
+	assert_redirected_to login_url
+  end
+
+  test "should redirect destroy when logged in as non-admin" do
+	log_in_as @other_account
+	assert_no_difference 'Account.count' do
+		delete account_path(@account)
+	end
+	assert_redirected_to root_url
+  end
 end

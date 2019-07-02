@@ -3,6 +3,7 @@ ferris:
         display_name: Ferris Bueller
         email: ferrisbueller@gmail.com
         password_digest: <%= Account.digest('password') %>
+        admin: true
 
 axel:
         display_name: axel
