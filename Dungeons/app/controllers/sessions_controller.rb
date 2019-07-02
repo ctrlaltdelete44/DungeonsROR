@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if (account && account.authenticate(params[:session][:password]))
         log_in account
         params[:session][:remember_me] == '1' ? remember(account) : forget(account)
-        redirect_to account
+        redirect_back_or account
     else
         flash.now[:danger] = 'Invalid email/password combination' 
         render 'new'

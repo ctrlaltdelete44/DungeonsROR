@@ -18,11 +18,11 @@ class AccountsEditTest < ActionDispatch::IntegrationTest
 	assert_select "h2.danger-msg", "The form could not be saved due to the following 3 errors"
   end
 
-  test "successful edit" do
-	log_in_as(@account)
-
+  test "successful edit with friendly forwarding" do
 	get edit_account_path(@account)
-	assert_template 'accounts/edit'
+	log_in_as(@account)
+	assert_redirected_to edit_account_url(@account)
+
 	display_name = "Captain Ya Boi"
 	email = "email@gmail.com"
 	patch account_path(@account), params: { account: { display_name: display_name,

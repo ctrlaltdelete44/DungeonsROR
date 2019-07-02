@@ -39,6 +39,7 @@ def current_account
     end
 end
 
+#returns boolean if whether current account matches given account
 def current_account?(account)
 	account == current_account
 end
@@ -46,5 +47,14 @@ end
 #returns boolean whether account is logged in
 def logged_in?
     !current_account.nil?
+end
+
+def redirect_back_or(default)
+	redirect_to(session[:forwarding_url] || default)
+	session.delete(:forwarding_url)
+end
+
+def store_location
+	session[:forwarding_url] = request.original_url if request.get?
 end
 end
