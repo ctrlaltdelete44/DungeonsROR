@@ -8,3 +8,10 @@ axel:
         display_name: axel
         email: axel@example.com
         password_digest: <%= Account.digest('password') %>
+
+<% 35.times do |n| %>
+account_<%= n %>:
+    display_name: <%= "Account #{n}" %>
+    email: <%= "account-@example.com" %>
+    password_digest: <%= Account.digest('password') %>
+<% end %>

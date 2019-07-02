@@ -1,0 +1,36 @@
+.pagination {
+    background: white;
+    cursor: default;
+    list-style: none;
+    text-align: center;
+    /* self-clearing method: */
+}
+
+    .pagination a{
+        padding: 0.2em 0.5em;
+        display: inline-block;
+        float: left;
+        margin-right: 1px;
+    }
+
+
+    .pagination .current {
+        font-style: normal;
+        font-weight: bold;
+        background: #2e6ab1;
+        color: white;
+        border: 1px solid #2e6ab1;
+    }
+
+    .pagination a {
+        text-decoration: none;
+        color: #105cb6;
+        border: 1px solid #9aafe5;
+    }
+
+    .pagination a:hover, .pagination a:focus {
+        color: #000033;
+        border-color: #000033;
+    }
+
+
