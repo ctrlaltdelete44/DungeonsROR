@@ -4,15 +4,21 @@ ferris:
         email: ferrisbueller@gmail.com
         password_digest: <%= Account.digest('password') %>
         admin: true
+        activated: true
+        activated_at: <%= Time.zone.now %>
 
 axel:
         display_name: axel
         email: axel@example.com
         password_digest: <%= Account.digest('password') %>
+        activated: true
+        activated_at: <%= Time.zone.now %>
 
 <% 35.times do |n| %>
 account_<%= n %>:
     display_name: <%= "Account #{n}" %>
     email: <%= "account-@example.com" %>
     password_digest: <%= Account.digest('password') %>
+    activated: true
+    activated_at: <%= Time.zone.now %>
 <% end %>

@@ -3,14 +3,15 @@
     "",
     "\\app",
     "\\app\\controllers",
-    "\\app\\models",
+    "\\app\\mailers",
     "\\app\\views",
-    "\\app\\views\\shared",
+    "\\app\\views\\account_mailer",
+    "\\config",
+    "\\config\\environments",
     "\\test",
-    "\\test\\controllers",
-    "\\test\\fixtures",
-    "\\test\\integration"
+    "\\test\\mailers",
+    "\\test\\mailers\\previews"
   ],
-  "SelectedNode": "\\app\\controllers\\sessions_controller.rb",
+  "SelectedNode": "\\app\\controllers\\accounts_controller.rb",
   "PreviewInSolutionExplorer": false
 }

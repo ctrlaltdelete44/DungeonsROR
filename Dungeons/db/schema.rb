@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_02_130238) do
+ActiveRecord::Schema.define(version: 2019_07_03_100943) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "display_name"
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 2019_07_02_130238) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin", default: false
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
     t.index ["email"], name: "index_accounts_on_email"
   end
 

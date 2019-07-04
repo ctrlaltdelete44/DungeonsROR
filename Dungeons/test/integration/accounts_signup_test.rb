@@ -1,13 +1,18 @@
 require 'test_helper'
 
 class AccountsSignupTest < ActionDispatch::IntegrationTest
+
+	def setup
+		ActionMailer::Base.deliveries.clear
+	end
+
     test "invalid signup information" do
             get signup_path
             assert_no_difference 'Account.count' do
                 post signup_path, params: { account: { display_name: "",
-                                                                                                 email: "user@invalid",
-                                                                                                 password: "egg",
-                                                                                                 password_confirmation: "boy" } }
+                                                       email: "user@invalid",
+                                                       password: "egg",
+                                                       password_confirmation: "boy" } }
             end
             assert_template 'accounts/new'
 
@@ -16,14 +21,31 @@ class AccountsSignupTest < ActionDispatch::IntegrationTest
             assert_select "p.danger-msg", "Password is too short (minimum is 8 characters)"
     end
 
-    test "valid signup information" do
+    test "valid signup information with activation" do
         get signup_path
         assert_difference 'Account.count', 1 do
-            post signup_path, params: { account: { display_name: "My display name",
-                                                                                                 email: "user@example.com",
-                                                                                                 password: "password",
-                                                                                                 password_confirmation: "password" } }
+            post accounts_path, params: { account: { display_name: "My display name",
+                                                   email: "user@example.com",
+                                                   password: "password",
+                                                   password_confirmation: "password" } }
         end
+		assert_equal 1, ActionMailer::Base.deliveries.size
+		account = assigns(:account)
+		assert_not account.activated?
+		#try to log in before activation
+		log_in_as account
+		assert_not is_logged_in?
+
+		#invalid activation link
+		get edit_account_activation_path("invalid token", email: account.email)
+		assert_not is_logged_in?
+
+		#valid token, wrong Email
+		get edit_account_activation_path(account.activation_token, email: "wrong")
+		assert_not is_logged_in?
+
+		#valid activation
+		get edit_account_activation_path(account.activation_token, email: account.email)
         follow_redirect!
         assert_template 'accounts/show'
         assert is_logged_in?

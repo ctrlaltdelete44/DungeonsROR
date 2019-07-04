@@ -4,11 +4,12 @@ before_action :correct_user,	only: [:edit, :update]
 before_action :admin_user,		only: [:destroy]
 
 def index
-	@accounts = Account.paginate(page: params[:page])
+	@accounts = Account.where(activated: true).paginate(page: params[:page])
 end
 
 def show
     @account = Account.find(params[:id])
+	redirect_to root_url and return unless @account.activated == true
 end
 
 def new
@@ -18,9 +19,9 @@ end
 def create
     @account = Account.new(account_params)
     if @account.save
-        log_in @account
-        flash[:success] = "Account created!"
-        redirect_to @account
+		@account.send_activation_email
+		flash[:info] = "Please check your email and activate you account."
+		redirect_to root_url
     else
         render 'new'
     end
