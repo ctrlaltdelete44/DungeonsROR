@@ -1,4 +1,6 @@
 class Account < ApplicationRecord
+	has_many :microposts, dependent: :destroy
+
     before_save :downcase_email
 	before_create :create_activation_digest
     attr_accessor :remember_token, :activation_token

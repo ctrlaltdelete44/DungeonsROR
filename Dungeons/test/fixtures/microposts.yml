@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+hello:
+  content: "Hello world!!"
+  created_at: <%= 10.minutes.ago %>
+
+worm:
+  content: "Worms are cool"
+  created_at: <%= 3.years.ago %>
+
+bacon:
+  content: "the reason mine is going to win is. the internet. is made of bacon. yeah"
+  created_at: <%= 2.hours.ago %>
+
+most_recent:
+  content: "si-fifties-fuckingth-seven"
+  created_at: <%= Time.zone.now %>
