@@ -54,14 +54,6 @@ private
                                         :password, :password_confirmation)
     end
 
-	def logged_in_user
-		unless logged_in?
-			store_location
-			flash[:danger] = "Please log in to access that page"
-			redirect_to login_url
-		end
-	end
-
 	def correct_user
 		@account = Account.find(params[:id])
 		redirect_to(root_url) unless current_account?(@account)
