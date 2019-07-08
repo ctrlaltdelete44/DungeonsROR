@@ -1,0 +1,13 @@
+<% provide(:title, "Forgot Password") %>
+
+<div class='root'>
+  <div class='card'>
+    <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+      <%= f.label :email, class: 'title' %>
+      <%= f.email_field :email, class: 'text-input' %>
+
+      <%= f.submit "Submit", class: 'submit'%>
+      <% end %>
+    
+  </div>
+</div>
