@@ -9,6 +9,7 @@ end
 
 def show
     @account = Account.find(params[:id])
+	@microposts = @account.microposts.paginate(page: params[:page])
 	redirect_to root_url and return unless @account.activated == true
 end
 

@@ -3,15 +3,26 @@
 hello:
   content: "Hello world!!"
   created_at: <%= 10.minutes.ago %>
+  account: ferris
 
 worm:
   content: "Worms are cool"
   created_at: <%= 3.years.ago %>
+  account: ferris
 
 bacon:
   content: "the reason mine is going to win is. the internet. is made of bacon. yeah"
   created_at: <%= 2.hours.ago %>
+  account: ferris
 
 most_recent:
   content: "si-fifties-fuckingth-seven"
   created_at: <%= Time.zone.now %>
+  account: ferris
+
+<% 30.times do |n| %>
+micropost_<%= n %>:
+    content: <%= Faker::Lorem.sentence(5) %>
+    created_at: <%= 42.days.ago %>
+    account: ferris
+<% end %>

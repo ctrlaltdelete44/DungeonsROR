@@ -1,10 +1,15 @@
-<% provide(:title, 'Account Information') %>
+<% provide(:title, @account.display_name) %>
 <%= gravatar_for @account.email, size: 80 %>
 <p class='title'> Display Name: </p>
 <p class='text-content'> <%= @account.display_name %> </p>
-
-<p class='title'> Email: </p>
-<p class='text-content'> <%= @account.email %> </p>
 <br>
 
-<p class='text-content'> Your account was created at: <%= @account.created_at %>! </p>
+<div class='root'>
+	<% if @account.microposts.any? %>
+		<div class='title-card'>
+			<h2 class='title'>Microposts (<%= @account.microposts.count %>)</h2>
+		</div>
+		<%= render @microposts %>
+		<%= will_paginate @microposts %>
+	<% end %>
+</div>
