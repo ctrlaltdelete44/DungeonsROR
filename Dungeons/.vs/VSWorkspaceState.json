@@ -2,16 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\controllers",
-    "\\app\\mailers",
+    "\\app\\assets",
+    "\\app\\assets\\stylesheets",
     "\\app\\views",
-    "\\app\\views\\account_mailer",
-    "\\config",
-    "\\config\\environments",
+    "\\app\\views\\microposts",
+    "\\db",
+    "\\db\\migrate",
     "\\test",
-    "\\test\\mailers",
-    "\\test\\mailers\\previews"
+    "\\test\\fixtures"
   ],
-  "SelectedNode": "\\app\\controllers\\accounts_controller.rb",
+  "SelectedNode": "\\db\\seeds.rb",
   "PreviewInSolutionExplorer": false
 }

@@ -24,3 +24,12 @@ Account.create!(display_name: "ctrlaltdelete44",
 					 activated: true,
 					activated_at: Time.zone.now)
 end
+
+
+accounts = Account.order(:created_at).take(6)
+50.times do
+	content = Faker::Lorem.sentence(5)
+	accounts.each {
+		|account| account.microposts.create!(content: content)
+	}
+end
