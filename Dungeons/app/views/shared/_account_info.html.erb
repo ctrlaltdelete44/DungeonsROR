@@ -1,6 +1,4 @@
-<div class='aside-container'>
 	<% link_to gravatar_for(current_account.email, size: 50), current_account %>
 	<h2 class='aside-title'><%= current_account.display_name %></h2>
 	<%= link_to "View my profile", current_account, class: 'subtle-link' %>
 	<p class='aside-text-content'><%= pluralize(current_account.microposts.count, "Micropost") %></p>
-</div>

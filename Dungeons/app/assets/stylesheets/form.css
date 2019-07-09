@@ -14,10 +14,6 @@ and open the template in the editor.
     width: 75%;
 }
 
-.sticky-form {
-    width: 85%;
-}
-
 .input, .text-input, textarea {
     text-align: center;
     text-decoration: none;

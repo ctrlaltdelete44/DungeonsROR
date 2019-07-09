@@ -1,7 +1,12 @@
 <% provide(:title, "Dashboard") %>
 	<% if logged_in? %>
-		<%= render 'shared/account_info' %>
-		<%= render 'shared/micropost_form' %>
+		<div class='aside-container'>
+			<%= render 'shared/account_info' %>
+			<%= render 'shared/micropost_form' %>
+		</div>
+		<div class='sticky-form'>
+			<%= render 'shared/feed' %>
+		</div>
 	<% else %>
 		<%= render 'default_home' %>
 	<% end %>

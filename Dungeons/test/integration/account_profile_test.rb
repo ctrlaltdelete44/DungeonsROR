@@ -11,7 +11,7 @@ class AccountProfileTest < ActionDispatch::IntegrationTest
 	get account_path(@account)
 	assert_template 'accounts/show'
 	assert_select 'title', full_title(@account.display_name)
-	assert_select 'p.text-content', @account.display_name
+	assert_select 'p', @account.display_name
 	assert_match @account.microposts.count.to_s, response.body
 	assert_select 'div.pagination'
 	@account.microposts.paginate(page: 1).each do |micropost|
