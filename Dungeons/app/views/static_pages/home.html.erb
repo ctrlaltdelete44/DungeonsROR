@@ -1,9 +1,7 @@
 <% provide(:title, "Dashboard") %>
-<div class='root'>
 	<% if logged_in? %>
 		<%= render 'shared/account_info' %>
 		<%= render 'shared/micropost_form' %>
 	<% else %>
 		<%= render 'default_home' %>
 	<% end %>
-</div>

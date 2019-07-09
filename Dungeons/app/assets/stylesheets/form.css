@@ -7,13 +7,18 @@ and open the template in the editor.
     Created on : 17-May-2019, 19:26:39
     Author     : Anthony
 */
+
 .form {
-    width: 75%;
-    margin: 0 auto;
+    margin: 20px auto;
     text-align: center;
+    width: 75%;
 }
 
-.input, .text-input{
+.sticky-form {
+    width: 85%;
+}
+
+.input, .text-input, textarea {
     text-align: center;
     text-decoration: none;
     padding: 5px;
@@ -26,6 +31,11 @@ and open the template in the editor.
     height: 2rem;
 }
 
-.text-input:focus {
+.text-input:focus, textarea {
     border: 1px solid #730E15;
+}
+
+textarea {
+    margin: 10px auto;
+    resize: none;
 }

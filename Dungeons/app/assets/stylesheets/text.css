@@ -7,46 +7,56 @@ and open the template in the editor.
     Created on : 11-Jun-2019, 11:57:51
     Author     : davie
 */
-
-.banner-title, .title, .text-content, .link{
+/* h1 = banner
+   h2 = title
+   a = link
+   p = text
+*/
+h1, h2, a, p, label, .aside-title, .aside-link, .aside-text-content, .subtle-link {
     text-align: center;
     font-family: 'Exo', sans-serif;
     display: block;
 }
 
-.banner-title, .title {
+h1, h2, label {
      color: #730E15;
 }
 
-.title {
+h1 {
+    font-size: 90px;
+}
+
+h2 {
     font-weight: bold;
     font-size: 25px;    
 }
 
-.text-content {
+p, label {
     font-size: 20px;
 }
 
-.banner-title {
-    font-size:90px;
+.subtle-link {
+    font-size: 17px;
+    text-decoration: none;
+    opacity: 1;
 }
 
-.link  {
+a {
     font-size: 25px;
     text-decoration: none;
     opacity: 0.5;
     display: inline;
 }
 
-.link:hover {
+a:hover {
     text-decoration: underline;
     opacity: 1.0;
 }
 
-.link:link, .link:visited, .link:hover {
+a:link, a:visited, a:hover {
     color: #730E15;
 }
 
-.link:active { 
+a:active { 
   color:burlywood;
 }

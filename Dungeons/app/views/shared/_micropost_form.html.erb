@@ -1,5 +1,5 @@
-<%= form_for(@micropost) do |f| %>
+<%= form_for @micropost, :html => { class: 'sticky-form' } do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
-	<%- f.text_area :content, placeholder: "Compose new micropost..." %>
+	<%= f.text_area(:content, placeholder: "Compose new micropost...", :size => '50x5') %>
 	<%= f.submit "Post", class: "submit" %>
 <% end %>

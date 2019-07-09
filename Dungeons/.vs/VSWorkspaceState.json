@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\assets",
-    "\\app\\assets\\stylesheets",
+    "\\app\\controllers",
     "\\app\\views",
-    "\\app\\views\\microposts",
-    "\\db",
-    "\\db\\migrate",
+    "\\app\\views\\password_resets",
+    "\\app\\views\\shared",
+    "\\app\\views\\static_pages",
+    "\\config",
     "\\test",
-    "\\test\\fixtures"
+    "\\test\\controllers"
   ],
-  "SelectedNode": "\\db\\seeds.rb",
+  "SelectedNode": "\\app\\views\\shared\\_micropost_form.html.erb",
   "PreviewInSolutionExplorer": false
 }

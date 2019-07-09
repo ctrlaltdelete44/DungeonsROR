@@ -1,13 +1,13 @@
 <% provide(:title, @account.display_name) %>
 <%= gravatar_for @account.email, size: 80 %>
-<p class='title'> Display Name: </p>
-<p class='text-content'> <%= @account.display_name %> </p>
+<h2> Display Name: </h2>
+<p> <%= @account.display_name %> </p>
 <br>
 
 <div class='root'>
 	<% if @account.microposts.any? %>
 		<div class='title-card'>
-			<h2 class='title'>Microposts (<%= @account.microposts.count %>)</h2>
+			<h2>Microposts (<%= @account.microposts.count %>)</h2>
 		</div>
 		<%= render @microposts %>
 		<%= will_paginate @microposts %>

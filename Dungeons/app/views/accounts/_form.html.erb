@@ -2,16 +2,16 @@
     <%= form_for(@account) do |f|%>
         <%= render 'shared/error_messages', object: f.object %>
 
-        <%= f.label :display_name, class: 'title' %>
+        <%= f.label :display_name %>
         <%= f.text_field :display_name, class: 'text-input' %>
 
-         <%= f.label :email, class: 'title' %>
+         <%= f.label :email %>
          <%= f.email_field :email, class: 'text-input' %>
 
-         <%= f.label :password, class: 'title' %>
+         <%= f.label :password %>
         <%= f.password_field :password, class: 'text-input' %>
 
-         <%= f.label :password_confirmation, "Confirm password", class: 'title' %>
+         <%= f.label :password_confirmation, "Confirm password" %>
          <%= f.password_field :password_confirmation, class: 'text-input' %>
 
           <%= f.submit yield(:button_text), class: 'submit'%>
