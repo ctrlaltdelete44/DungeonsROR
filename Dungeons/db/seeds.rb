@@ -33,3 +33,12 @@ accounts = Account.order(:created_at).take(6)
 		|account| account.microposts.create!(content: content)
 	}
 end
+
+#following relationships
+accounts = Account.all
+account = accounts.first
+following = accounts[2..50]
+followers = accounts[3..40]
+
+following.each { |followed| account.follow(followed) }
+followers.each { |follower| follower.follow(account) }

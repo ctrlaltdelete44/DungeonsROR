@@ -87,6 +87,7 @@ class AccountTest < ActiveSupport::TestCase
     assert_not ferris.following?(axel)
     ferris.follow(axel)
     assert ferris.following?(axel)
+    assert axel.followers.include?(ferris)
     ferris.unfollow(axel)
     assert_not ferris.following?(axel)
   end
