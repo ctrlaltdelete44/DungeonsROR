@@ -73,10 +73,21 @@ class AccountTest < ActiveSupport::TestCase
   end
 
   test "associated microposts should be destroyed" do
-	@account.save
-	@account.microposts.create!(content: "Lorem ipsum")
-	assert_difference 'Micropost.count', -1 do
-		@account.destroy
-	end
+	  @account.save
+	  @account.microposts.create!(content: "Lorem ipsum")
+	  assert_difference 'Micropost.count', -1 do
+		  @account.destroy
+	  end
+  end
+
+  test "should follow and unfollow a user" do
+    ferris = accounts(:ferris)
+    axel   = accounts(:axel)
+
+    assert_not ferris.following?(axel)
+    ferris.follow(axel)
+    assert ferris.following?(axel)
+    ferris.unfollow(axel)
+    assert_not ferris.following?(axel)
   end
 end
