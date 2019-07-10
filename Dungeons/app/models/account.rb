@@ -71,7 +71,19 @@ class Account < ApplicationRecord
 
 	def feed
 	Micropost.where("account_id = ?", id)
-	end
+  end
+  
+  def follow(other_account)
+    following << other_account
+  end
+
+  def unfollow(other_account)
+    following.delete(other_account)
+  end
+
+  def following?(other_account)
+    following.include?(other_account)
+  end
 
 	 private
 		def downcase_email
