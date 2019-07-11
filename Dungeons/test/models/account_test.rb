@@ -121,6 +121,7 @@ class AccountTest < ActiveSupport::TestCase
     
     ferris.favourite(post)
     assert ferris.favourited?(post)
+    assert post.favouriters.include?(ferris)
 
     ferris.unfavourite(post)
     assert_not ferris.favourited?(post)

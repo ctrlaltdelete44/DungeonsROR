@@ -1,5 +1,10 @@
 class Micropost < ApplicationRecord
   belongs_to :account
+  has_many :favourited_by, class_name: "Favourite",
+                           foreign_key: "micropost_id",
+                           dependent: :destroy
+  has_many :favouriters, through: :favourited_by, source: :account
+  
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :account_id, presence: true
