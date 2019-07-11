@@ -112,4 +112,17 @@ class AccountTest < ActiveSupport::TestCase
       assert_not axel.feed.include?(unfollowed_post)
     end
   end
+
+  test "should favourite and unfavourite a post" do
+    ferris = accounts(:ferris)
+    post = microposts(:bacon)
+
+    assert_not ferris.favourited?(post)
+    
+    ferris.favourite(post)
+    assert ferris.favourited?(post)
+
+    ferris.unfavourite(post)
+    assert_not ferris.favourited?(post)
+  end
 end

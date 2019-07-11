@@ -1,5 +1,7 @@
 class Account < ApplicationRecord
-	has_many :microposts, dependent: :destroy
+  has_many :microposts, dependent: :destroy
+  has_many :favourites, class_name: "Micropost"
+
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
                                   dependent: :destroy
@@ -74,9 +76,9 @@ class Account < ApplicationRecord
 	 end
 
   def feed
-    following_ids = "SELECT followed_id FROM relationships
+    following_ids_sql = "SELECT followed_id FROM relationships
                      WHERE follower_id = :account_id"
-    Micropost.where("account_id IN (#{following_ids})
+    Micropost.where("account_id IN (#{following_ids_sql})
                      OR account_id = :account_id", account_id: id)
   end
   
@@ -90,6 +92,18 @@ class Account < ApplicationRecord
 
   def following?(other_account)
     following.include?(other_account)
+  end
+
+  def favourite(micropost)
+    favourites << micropost
+  end
+
+  def unfavourite(micropost)
+    favourites.delete(micropost)
+  end
+
+  def favourited?(micropost)
+    favourites.include?(micropost)
   end
 
 	 private
