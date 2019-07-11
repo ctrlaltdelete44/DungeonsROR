@@ -1,6 +1,9 @@
 class Account < ApplicationRecord
   has_many :microposts, dependent: :destroy
-  has_many :favourites, class_name: "Micropost"
+  has_many :favourite_posts, class_name: "Favourite",
+                              foreign_key: "account_id",
+                              dependent: :destroy
+  has_many :favourites, through: :favourite_posts, source: :micropost
 
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",

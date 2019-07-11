@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_10_142523) do
+ActiveRecord::Schema.define(version: 2019_07_11_151237) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "display_name"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 2019_07_10_142523) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.index ["email"], name: "index_accounts_on_email"
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.integer "account_id"
+    t.integer "micropost_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_favourites_on_account_id"
   end
 
   create_table "microposts", force: :cascade do |t|
@@ -46,6 +54,7 @@ ActiveRecord::Schema.define(version: 2019_07_10_142523) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
+    t.index [nil], name: "index_relationships_on_micropost_id"
   end
 
 end
