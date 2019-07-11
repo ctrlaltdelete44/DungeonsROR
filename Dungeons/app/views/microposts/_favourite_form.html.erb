@@ -1,0 +1,8 @@
+<% unless current_account?(micropost.account) %>
+    <% if current_account.favourited?(micropost) %>
+        <%= render 'unfavourite' %>
+    <% else %>
+        <%= render 'favourite' %>
+    <% end %>
+
+<% end %>

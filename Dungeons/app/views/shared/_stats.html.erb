@@ -13,4 +13,9 @@
         <p>followers</p>
     </a>
     </span>
+
+    <a class='stat' href='<%= favourites_account_path(@account) %>'>
+        <h2><%= @account.favourites.count %></h2>
+        <p>favourites</p>
+    </a>
 </div>

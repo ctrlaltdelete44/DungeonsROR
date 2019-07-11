@@ -9,12 +9,13 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   resources :accounts do
     member do
-      get :following, :followers
+      get :following, :followers, :favourites
     end
   end
   resources :account_activations, only: [:edit]
   resources :password_resets,	    only: [:new, :create, :edit, :update]
   resources :microposts,		      only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
+  resources :favourites,          only: [:create, :destroy]
   root 'static_pages#home'
 end
