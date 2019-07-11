@@ -27,6 +27,12 @@ and open the template in the editor.
     height: 2rem;
 }
 
+.subtle-submit {
+    width: 50%;
+    margin: 10px auto;
+    height: 2rem;
+}
+
 .text-input:focus, textarea {
     border: 1px solid #730E15;
 }

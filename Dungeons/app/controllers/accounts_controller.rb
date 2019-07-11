@@ -48,6 +48,20 @@ def destroy
 	redirect_to accounts_url
 end
 
+def following
+	@title = "Following"
+	@account = Account.find(params[:id])
+	@accounts = @account.following.paginate(page: params[:page])
+	render 'show_follow'
+end
+
+def followers
+	@title = "Followers"
+	@account = Account.find(params[:id])
+	@accounts = @account.followers.paginate(page: params[:page])
+	render 'show_follow'
+end
+
 private
     def account_params
         params.require(:account).permit(:display_name, :email,

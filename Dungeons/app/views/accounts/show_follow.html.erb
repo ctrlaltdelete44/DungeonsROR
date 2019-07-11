@@ -1,0 +1,18 @@
+<% provide(:title, @title) %>
+<div class='aside-container'>
+    <%= render 'shared/account_info' %>
+
+    <%= render 'shared/stats'%>
+    <% if @accounts.any? %>
+        <% @accounts.each do |account| %>
+            <%= link_to gravatar_for(account.email, size: 30), account %>
+        <% end %>
+    <% end %>
+</div>
+
+<div class='sticky-form'>
+    <% if @accounts.any? %>
+        <%= render @accounts %>
+        <%= will_paginate %>
+    <% end %>
+</div>
