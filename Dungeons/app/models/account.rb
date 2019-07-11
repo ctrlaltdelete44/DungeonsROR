@@ -73,8 +73,11 @@ class Account < ApplicationRecord
 		reset_sent_at < 2.hours.ago
 	 end
 
-	def feed
-	Micropost.where("account_id = ?", id)
+  def feed
+    following_ids = "SELECT followed_id FROM relationships
+                     WHERE follower_id = :account_id"
+    Micropost.where("account_id IN (#{following_ids})
+                     OR account_id = :account_id", account_id: id)
   end
   
   def follow(other_account)

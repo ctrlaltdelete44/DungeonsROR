@@ -91,4 +91,25 @@ class AccountTest < ActiveSupport::TestCase
     ferris.follow(axel)
     assert ferris.following?(axel)
   end
+
+  test "feed should have correct posts" do
+    ferris = accounts(:ferris)
+    axel = accounts(:axel)
+    malcolm = accounts(:malcolm)
+
+    #confirm presence of posts from followed account
+    ferris.microposts.each do |followed_post|
+      assert axel.feed.include?(followed_post)
+    end
+
+    #confirm presence of own posts
+    axel.microposts.each do |own_post|
+      assert axel.feed.include?(own_post)
+    end
+
+    #confirm absence of unfollowed accounts posts
+    malcolm.microposts.each do |unfollowed_post|
+      assert_not axel.feed.include?(unfollowed_post)
+    end
+  end
 end
