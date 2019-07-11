@@ -1,0 +1,7 @@
+one:
+  follower: axel
+  followed: ferris
+
+two: 
+  follower: ferris
+  followed: axel
