@@ -13,7 +13,7 @@ class AccountProfileTest < ActionDispatch::IntegrationTest
 	assert_select 'title', full_title(@account.display_name)
 	assert_select 'h2', @account.display_name
 	
-	assert_select 'a.stat', count: 2
+	assert_select 'a.stat', count: 3
 	assert_match @account.following.count.to_s, response.body
 	assert_match @account.followers.count.to_s, response.body
 
