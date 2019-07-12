@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class FavouriteTest < ActiveSupport::TestCase
@@ -6,16 +8,16 @@ class FavouriteTest < ActiveSupport::TestCase
                                   micropost_id: microposts(:bacon).id)
   end
 
-  test "should be valid" do
+  test 'should be valid' do
     assert @relationship.valid?
   end
 
-  test "should require an account" do
+  test 'should require an account' do
     @relationship.account_id = nil
     assert_not @relationship.valid?
   end
 
-  test "should require a post" do
+  test 'should require a post' do
     @relationship.micropost_id = nil
     assert_not @relationship.valid?
   end

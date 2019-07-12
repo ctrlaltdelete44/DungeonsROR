@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddResetToAccounts < ActiveRecord::Migration[5.2]
   def change
     add_column :accounts, :reset_digest, :string

@@ -1,5 +1,6 @@
-class AccountMailer < ApplicationMailer
+# frozen_string_literal: true
 
+class AccountMailer < ApplicationMailer
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -8,7 +9,7 @@ class AccountMailer < ApplicationMailer
   def account_activation(account)
     @account = account
 
-    mail to: account.email, subject: "Account Activation"
+    mail to: account.email, subject: 'Account Activation'
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -18,6 +19,6 @@ class AccountMailer < ApplicationMailer
   #
   def password_reset(account)
     @account = account
-	mail to: account.email, subject: "Password Reset"
+    mail to: account.email, subject: 'Password Reset'
   end
 end

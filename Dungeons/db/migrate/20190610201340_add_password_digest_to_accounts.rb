@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddPasswordDigestToAccounts < ActiveRecord::Migration[5.2]
   def change
     add_column :accounts, :password_digest, :string
