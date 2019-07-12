@@ -8,12 +8,18 @@ and open the template in the editor.
     Author     : Anthony
 */
 .aside-container {
-    top: 100px;
-    right: 7.5%;
-    padding: 10px;
+    top: 10px;
+    max-width: 25%;
     float: right;
     position: sticky;
     box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
     margin: 1rem auto;
     border-radius: 10px;
+}
+
+.stat {
+    display: inline-block;
+    padding: 0 15px;
+    opacity: 1;
+    font-size: 17px;
 }

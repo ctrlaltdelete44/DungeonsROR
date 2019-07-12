@@ -1,0 +1,21 @@
+<% @account ||= current_account %>
+<div class='stats'>
+    <span>
+    <a class='stat' href='<%= following_account_path(@account) %>'>
+        <h2><%= @account.following.count %></h2>
+        <p>following</p>
+    </a>
+    </span>
+
+    <span>
+    <a class = 'stat' href='<%= followers_account_path(@account) %>'>
+        <h2><%= @account.followers.count %></h2>
+        <p>followers</p>
+    </a>
+    </span>
+
+    <a class='stat' href='<%= favourites_account_path(@account) %>'>
+        <h2><%= @account.favourites.count %></h2>
+        <p>favourites</p>
+    </a>
+</div>

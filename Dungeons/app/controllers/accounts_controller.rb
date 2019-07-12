@@ -1,65 +1,90 @@
+# frozen_string_literal: true
+
 class AccountsController < ApplicationController
-before_action :logged_in_user,	only: [:index, :edit, :update, :destroy]
-before_action :correct_user,	only: [:edit, :update]
-before_action :admin_user,		only: [:destroy]
+  before_action :logged_in_user, only: %i[index edit update destroy
+                                          following followers favourites]
+  before_action :correct_user,  only: %i[edit update]
+  before_action :admin_user,    only: [:destroy]
 
-def index
-	@accounts = Account.where(activated: true).paginate(page: params[:page])
-end
+  def index
+    @accounts = Account.where(activated: true).paginate(page: params[:page])
+  end
 
-def show
+  def show
     @account = Account.find(params[:id])
-	@microposts = @account.microposts.paginate(page: params[:page])
-	redirect_to root_url and return unless @account.activated == true
-end
+    @microposts = @account.microposts.paginate(page: params[:page])
+    redirect_to(root_url) && return unless @account.activated == true
+  end
 
-def new
+  def new
     @account = Account.new
-end
+  end
 
-def create
+  def create
     @account = Account.new(account_params)
     if @account.save
-		@account.send_activation_email
-		flash[:info] = "Please check your email and activate you account."
-		redirect_to root_url
+      @account.send_activation_email
+      flash[:info] = 'Please check your email and activate you account.'
+      redirect_to root_url
     else
-        render 'new'
+      render 'new'
     end
-end
+  end
 
-def edit
-	@account = Account.find(params[:id])
-end
+  def edit
+    @account = Account.find(params[:id])
+  end
 
-def update
-	@account = Account.find(params[:id])
-	if (@account.update_attributes(account_params))
-		flash[:success] = "Profile updated"
-		redirect_to @account
-	else
-		render 'edit'
-	end
-end
+  def update
+    @account = Account.find(params[:id])
+    if @account.update_attributes(account_params)
+      flash[:success] = 'Profile updated'
+      redirect_to @account
+    else
+      render 'edit'
+    end
+  end
 
-def destroy
-	Account.find(params[:id]).destroy
-	flash[:success] = "Account deleted"
-	redirect_to accounts_url
-end
+  def destroy
+    Account.find(params[:id]).destroy
+    flash[:success] = 'Account deleted'
+    redirect_to accounts_url
+  end
 
-private
-    def account_params
-        params.require(:account).permit(:display_name, :email,
-                                        :password, :password_confirmation)
+  def following
+    @title = 'Following'
+    @account = Account.find(params[:id])
+    @accounts = @account.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = 'Followers'
+    @account = Account.find(params[:id])
+    @accounts = @account.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def favourites
+    @title = 'Favourites'
+    @account = Account.find(params[:id])
+    @posts = @account.favourites.paginate(page: params[:page])
+    render 'show_favourites'
+  end
+
+  private
+
+  def account_params
+    params.require(:account).permit(:display_name, :email,
+                                    :password, :password_confirmation)
+  end
+
+  def correct_user
+    @account = Account.find(params[:id])
+    redirect_to(root_url) unless current_account?(@account)
     end
 
-	def correct_user
-		@account = Account.find(params[:id])
-		redirect_to(root_url) unless current_account?(@account)
-	end
-
-	def admin_user
-		redirect_to(root_url) unless current_account.admin?
-	end
+  def admin_user
+    redirect_to(root_url) unless current_account.admin?
+    end
 end

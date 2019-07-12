@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 ENV['RAILS_ENV'] ||= 'test'
+require 'simplecov'
+SimpleCov.start
 require_relative '../config/environment'
 require 'rails/test_help'
 
@@ -11,14 +15,14 @@ class ActiveSupport::TestCase
   end
 
   def log_in_as(account)
-	session[:account_id] = account.id
+    session[:account_id] = account.id
   end
 
   class ActionDispatch::IntegrationTest
-	def log_in_as(account, password: 'password', remember_me: '1')
-		post login_path, params: { session: { email: account.email,
-											  password: password, 
-										      remember_me: remember_me }}
-	end
+    def log_in_as(account, password: 'password', remember_me: '1')
+      post login_path, params: { session: { email: account.email,
+                                            password: password,
+                                            remember_me: remember_me } }
+    end
   end
 end

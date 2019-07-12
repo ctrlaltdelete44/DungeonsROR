@@ -36,6 +36,9 @@
 }
 
 .sticky-form {
-    width: 60%;
+    width: 85%;
 }
 
+.inline {
+    display: inline;
+}

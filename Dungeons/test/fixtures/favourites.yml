@@ -1,0 +1,11 @@
+one:
+  account: ferris
+  micropost: bacon
+
+two:
+  account: ferris
+  micropost: worm
+
+three:
+  account: malcolm
+  micropost: bacon

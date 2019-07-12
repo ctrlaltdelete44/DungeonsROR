@@ -12,7 +12,7 @@ and open the template in the editor.
    a = link
    p = text
 */
-h1, h2, a, p, label, .aside-title, .aside-link, .aside-text-content, .subtle-link {
+h1, h2, a, p, label, .subtle-link, .subtle-text {
     text-align: center;
     font-family: 'Exo', sans-serif;
     display: block;
@@ -28,7 +28,8 @@ h1 {
 
 h2 {
     font-weight: bold;
-    font-size: 25px;    
+    font-size: 25px;  
+    margin: 10px;  
 }
 
 p, label {
@@ -39,6 +40,10 @@ p, label {
     font-size: 17px;
     text-decoration: none;
     opacity: 1;
+}
+
+.subtle-text {
+    font-size: 15px;
 }
 
 a {
