@@ -9,6 +9,6 @@ class CreateFavourites < ActiveRecord::Migration[5.2]
       t.timestamps
     end
     add_index :favourites, :account_id
-    add_index :relationships, :micropost_id
+    add_index :favourites, :micropost_id
   end
 end
