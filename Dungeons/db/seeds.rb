@@ -40,8 +40,8 @@ account = accounts.first
 following = accounts[2..50]
 followers = accounts[3..40]
 
-posts = Micropost.all
-favourites = posts[100..120]
+posts = accounts[5].microposts
+favourites = posts[1..10]
 
 following.each { |followed| account.follow(followed) }
 followers.each { |follower| follower.follow(account) }
