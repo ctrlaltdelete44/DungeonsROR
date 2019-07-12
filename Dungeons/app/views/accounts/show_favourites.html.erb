@@ -1,0 +1,13 @@
+<% provide(:title, @title) %>
+<div class='aside-container'>
+    <%= render 'shared/account_info' %>
+
+    <%= render 'shared/stats'%>
+</div>
+
+<div class='sticky-form'>
+    <% if @posts.any? %>
+        <%= render @posts %>
+        <%= will_paginate @posts %>
+    <% end %>
+</div>

@@ -5,6 +5,7 @@ class AccountProfileTest < ActionDispatch::IntegrationTest
 
   def setup
 	@account = accounts(:ferris)
+	log_in_as @account
   end
 
   test "profile display" do

@@ -57,4 +57,9 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
 	get followers_account_path(@account)
 	assert_redirected_to login_url
   end
+
+  test "should redirect fvourites when not logged in" do
+	get favourites_account_path(@account)
+	assert_redirected_to login_url
+  end
 end

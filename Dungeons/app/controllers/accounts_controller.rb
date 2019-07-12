@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
 before_action :logged_in_user,	only: [:index, :edit, :update, :destroy,
-									   :following, :followers]
+									   :following, :followers, :favourites]
 before_action :correct_user,	only: [:edit, :update]
 before_action :admin_user,		only: [:destroy]
 
@@ -61,6 +61,13 @@ def followers
 	@account = Account.find(params[:id])
 	@accounts = @account.followers.paginate(page: params[:page])
 	render 'show_follow'
+end
+
+def favourites
+	@title = "Favourites"
+	@account = Account.find(params[:id])
+	@posts = @account.favourites.paginate(page: params[:page])
+	render 'show_favourites'
 end
 
 private
