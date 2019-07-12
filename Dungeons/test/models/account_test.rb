@@ -115,7 +115,7 @@ class AccountTest < ActiveSupport::TestCase
 
   test "should favourite and unfavourite a post" do
     ferris = accounts(:ferris)
-    post = microposts(:bacon)
+    post = microposts(:most_recent)
 
     assert_not ferris.favourited?(post)
     
