@@ -3,6 +3,9 @@
 <h2> <%= @account.display_name %> </h2>
 <%= render 'shared/stats'%>
 <%= render 'follow_form' if logged_in? %>
+<% if current_account.admin? && current_account?(@account) %>
+	<%= link_to "Send test email", send_test_email_path %>
+<% end %>
 <br>
 
 

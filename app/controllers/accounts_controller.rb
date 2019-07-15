@@ -2,7 +2,8 @@
 
 class AccountsController < ApplicationController
   before_action :logged_in_user, only: %i[index edit update destroy
-                                          following followers favourites]
+                                        following followers favourites
+                                        test_email ]
   before_action :correct_user,  only: %i[edit update]
   before_action :admin_user,    only: [:destroy]
 
@@ -70,6 +71,13 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
     @posts = @account.favourites.paginate(page: params[:page])
     render 'show_favourites'
+  end
+
+  def send_test_email
+    @account = current_account
+    @account.send_test_email
+    flash[:info] = "Test email has been sent"
+    redirect_to @account
   end
 
   private

@@ -112,6 +112,9 @@ class Account < ApplicationRecord
     favourite_ids.include?(micropost.id)
   end
 
+  def send_test_email
+    TestMailer.test_emails(self).deliver_now
+  end
   private
 
   def downcase_email

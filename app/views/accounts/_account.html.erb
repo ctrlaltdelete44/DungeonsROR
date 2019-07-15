@@ -1,8 +1,9 @@
 <div class='card'>
 		<span><%= gravatar_for account.email, size: 50 %></span>
 		<span><%= link_to account.display_name, account %></span>
+		
 		<% if current_account.admin? && !current_account?(account) %>
-		<%= link_to "Delete", account, method: :delete,
+			<%= link_to "Delete", account, method: :delete,
 										   data: { confirm: "Are you sure?" },
 										   class: 'subtle-link'%>
 		<% end %>
