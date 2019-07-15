@@ -1,4 +1,6 @@
 <% if @feed_items.any? %>
-	<%= render @feed_items %>
+	<div class='sticky-form'>
+		<%= render @feed_items %>
+	</div>
 	<%= will_paginate @feed_items %>
 <% end %>

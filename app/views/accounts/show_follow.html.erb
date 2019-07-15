@@ -13,6 +13,8 @@
 <div class='sticky-form'>
     <% if @accounts.any? %>
         <%= render @accounts %>
+        </div>
         <%= will_paginate %>
+    <% else %>
+        </div>
     <% end %>
-</div>

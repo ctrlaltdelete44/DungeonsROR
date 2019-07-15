@@ -17,14 +17,12 @@ and open the template in the editor.
     width: 100%;
 }
 
-@media screen and (min-width: 600px) {
-    .card {
-        width: calc(90% - 2rem);
-    }
+.card {
+    width: 30%;
+    margin: 1rem 1%;
+    float: left;
 }
 
-@media screen and (min-width: 900px) {
-    .card {
-        width: calc(70% - 2rem);
-    }
+.micropost_content {
+    height: 25rem;
 }

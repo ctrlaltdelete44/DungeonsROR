@@ -36,7 +36,10 @@
 }
 
 .sticky-form {
-    width: 85%;
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .inline {
