@@ -64,17 +64,9 @@ class Account < ApplicationRecord
     update_columns(activated: true, activated_at: Time.zone.now)
   end
 
-  def send_activation_email
-    AccountMailer.account_activation(self).deliver_now
-  end
-
   def create_reset_digest
     self.reset_token = Account.new_token
     update_columns(reset_digest: Account.digest(reset_token), reset_sent_at: Time.zone.now)
-  end
-
-  def send_password_reset_email
-    AccountMailer.password_reset(self).deliver_now
   end
 
   def password_reset_expired?
@@ -111,7 +103,7 @@ class Account < ApplicationRecord
   def favourited?(micropost)
     favourite_ids.include?(micropost.id)
   end
-  
+
   private
 
   def downcase_email
