@@ -75,7 +75,7 @@ class AccountsController < ApplicationController
 
   def send_test_email
     @account = current_account
-    @account.send_test_email
+    SendTestEmailsJob.perform_later @account
     flash[:info] = "Test email has been sent"
     redirect_to @account
   end

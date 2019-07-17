@@ -111,10 +111,7 @@ class Account < ApplicationRecord
   def favourited?(micropost)
     favourite_ids.include?(micropost.id)
   end
-
-  def send_test_email
-    SendTestEmailsJob.set(wait: 20.seconds).perform_later self
-  end
+  
   private
 
   def downcase_email
