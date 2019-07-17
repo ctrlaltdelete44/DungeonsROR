@@ -8,7 +8,8 @@ class Micropost < ApplicationRecord
   has_many :favouriters, through: :favourited_by, source: :account
 
   default_scope -> { order(created_at: :desc) }
-  mount_uploader :picture, PictureUploader
+  has_one_attached :picture
+  #mount_uploader :picture, PictureUploader
   validates :account_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
   validate :picture_size
@@ -16,8 +17,10 @@ class Micropost < ApplicationRecord
   private
 
   def picture_size
-    if picture.size > 5.megabytes
-      errors.add(:picture, 'should be less than 5MB')
+    if picture.attached?
+      if picture.blob.byte_size > 5.megabytes
+        errors.add(:picture, 'should be less than 5MB')
+      end
     end
   end
 end
