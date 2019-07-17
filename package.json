@@ -1,5 +1,7 @@
 {
   "name": "Dungeons",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "tachyons-sass": "^4.9.5"
+  }
 }

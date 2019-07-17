@@ -113,7 +113,7 @@ class Account < ApplicationRecord
   end
 
   def send_test_email
-    TestMailer.test_emails(self).deliver_now
+    SendTestEmailsJob.set(wait: 20.seconds).perform_later self
   end
   private
 
