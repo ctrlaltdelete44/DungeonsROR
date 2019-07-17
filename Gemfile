@@ -33,6 +33,7 @@ gem 'fog-aws', '~> 3.5.1', require: 'fog/aws'
 gem 'faker', '~> 1.7.3'
 gem 'mini_magick', '~> 4.7.0'
 gem 'will_paginate', '~> 3.1.6'
+gem 'bootstrap-will_paginate'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

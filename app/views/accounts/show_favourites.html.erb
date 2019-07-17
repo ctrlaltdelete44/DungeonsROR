@@ -8,6 +8,8 @@
 <div class='sticky-form'>
     <% if @posts.any? %>
         <%= render @posts %>
+        </div>
         <%= will_paginate @posts %>
+    <% else %>
+        </div>
     <% end %>
-</div>

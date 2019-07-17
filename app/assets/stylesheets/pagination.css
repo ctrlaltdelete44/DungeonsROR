@@ -8,7 +8,6 @@
 
     .pagination a{
         padding: 0.2em 0.5em;
-        display: inline-block;
         float: left;
         margin-right: 1px;
     }
@@ -32,5 +31,3 @@
         color: #000033;
         border-color: #000033;
     }
-
-

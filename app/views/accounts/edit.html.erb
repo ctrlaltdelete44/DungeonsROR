@@ -2,11 +2,9 @@
 <% provide(:button_text, 'Save Changes') %>
 
 
-<div class='card'>
-	<%= render 'form' %>
-	<div class="gravatar_edit">
-		<%= gravatar_for @account.email %>
-		<a href="http://gravatar.com/emails" target="_blank">Change</a>
-	</div>
 
+<%= render 'form' %>
+<div class="gravatar_edit">
+	<%= gravatar_for @account.email %>
+	<a href="http://gravatar.com/emails" target="_blank">Change</a>
 </div>
