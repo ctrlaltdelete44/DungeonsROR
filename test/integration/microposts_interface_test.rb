@@ -18,6 +18,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Micropost.count' do
       post microposts_path, params: { micropost: { content: '' } }
     end
+    assert_template 'static_pages/home'
     assert_select 'div.danger-box'
 
     # valid submission
