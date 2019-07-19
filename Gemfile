@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'delayed_job_active_record'
 gem 'carrierwave', '~> 1.3.1'
+gem "aws-sdk-s3", require: false
 gem 'fog-aws', '~> 3.5.1', require: 'fog/aws'
 gem 'faker', '~> 1.7.3'
 gem 'mini_magick', '~> 4.7.0'
