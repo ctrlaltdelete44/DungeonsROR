@@ -80,6 +80,11 @@ class AccountsController < ApplicationController
     redirect_to @account
   end
 
+  def test_migration
+
+    redirect_to current_account
+  end
+
   private
 
   def account_params

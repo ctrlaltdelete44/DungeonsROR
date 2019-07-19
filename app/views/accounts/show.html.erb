@@ -7,6 +7,7 @@
 	<%= render 'follow_form' if logged_in? %>
 	<% if current_account.admin? && current_account?(@account) %>
 		<%= link_to "Send test email", send_test_email_path %>
+		<%= link_to "Test migration", test_migration_path %>
 	<% end %>
 </div>
 <div class='sticky-form'>
