@@ -81,7 +81,7 @@ class AccountsController < ApplicationController
   end
 
   def test_migration
-
+    MigrateJob.perform_later
     redirect_to current_account
   end
 
