@@ -1,7 +1,7 @@
 # This migration comes from active_storage (originally 20170806125915)
 class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
   def up
-    unless table_exists?('active_storage_blobs') do
+    unless table_exists?('active_storage_blobs')
       create_table :active_storage_blobs do |t|
         t.string   :key,        null: false
         t.string   :filename,   null: false
