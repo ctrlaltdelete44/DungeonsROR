@@ -2,12 +2,12 @@
 	<%= render 'shared/error_messages', object: f.object %>
 	<%= f.text_area(:content, placeholder: "Compose new micropost...", :size => '20x5') %>
 	<%= f.submit "Post", class: "subtle-submit" %>
-	<%= f.file_field :picture, accept: 'image/jpeg, image/giv, image/png', class: 'subtle-submit' %>
+	<%= f.file_field :picture_new, accept: 'image/jpeg, image/giv, image/png', class: 'subtle-submit' %>
 
 <% end %>
 
 <script type ='text/javascript'>
-	$('#micropost_picture').bind('change', function() {
+	$('#micropost_picture_new').bind('change', function() {
 		var size_mb = this.files[0].size/1024/1024;
 		if (size_mb > 5) {
 			alert('Maximum file size is 5MB. Please choose a smaller file.');
