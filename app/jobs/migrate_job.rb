@@ -5,9 +5,11 @@ class MigrateJob < ApplicationJob
     @microposts = Micropost.all
     @microposts.each do |micropost|
       if micropost.picture?
-        filename = File.basename(URI.parse(micropost.picture.store_dir).to_s)
-        micropost.picture_new.attach(io: File.open(micropost.picture.url),
-                                     filename: filename)
+        filename = micropost.picture.cache_stored_file!
+        if File.exist?(filename)
+          micropost.picture_new.attach(io: File.open(filename),
+                                       filename: micropost.picture.filename)
+        end
       end
     end
   end
