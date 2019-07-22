@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'delayed_job_active_record'
+gem 'tachyons-rails'
 gem "aws-sdk-s3", require: false
 gem 'fog-aws', '~> 3.5.1', require: 'fog/aws'
 gem 'faker', '~> 1.7.3'

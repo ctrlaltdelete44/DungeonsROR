@@ -1,9 +1,10 @@
 <% provide(:title, "Dashboard") %>
 	<% if logged_in? %>
-		<div class='aside-container'>
+		<div class='fl right-2 w-25 fixed top-10'>
 			<%= render 'shared/account_info' %>
 			<%= render 'shared/stats' %>
 			<%= render 'shared/micropost_form' %>
+			<%= will_paginate @feed_items %>
 		</div>
 		<%= render 'shared/feed' %>
 	<% else %>

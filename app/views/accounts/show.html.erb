@@ -1,6 +1,6 @@
 <% provide(:title, @account.display_name) %>
 
-<div class='aside-container'>
+<div class='br2 shadow-1 pa1 right-2 w-25 fixed top-10'>
 	<%= gravatar_for @account.email, size: 80 %>
 	<h2> <%= @account.display_name %> </h2>
 	<%= render 'shared/stats' %>
@@ -9,13 +9,13 @@
 		<%= link_to "Send test email", send_test_email_path %>
 		<%= link_to "Test migration", test_migration_path %>
 	<% end %>
+	<%= will_paginate @microposts %>
 </div>
-<div class='sticky-form'>
+<div class='w-75 flex-wrap justify-around items-stretch mt5'>
 	<% if @account.microposts.any? %>
-		<div class='title-card'>
+		<div class='shadow-1 ma3 fl br3 w-100'>
 			<h2>Microposts (<%= @account.microposts.count %>)</h2>
 		</div>
 		<%= render @microposts %>
 	<% end %>
 </div>
-<%= will_paginate @microposts %>

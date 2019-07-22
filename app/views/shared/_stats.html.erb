@@ -1,21 +1,21 @@
 <% @account ||= current_account %>
-<div class='stats'>
+<div>
     <span>
-    <a class='stat' href='<%= following_account_path(@account) %>'>
-        <h2><%= @account.following.count %></h2>
-        <p>following</p>
+    <a class='dib' href='<%= following_account_path(@account) %>'>
+        <h2 class='link-hover-underline p3 dib ph2 mb0 primary'><%= @account.following.count %></h2>
+        <p class='secondary p5'>following</p>
     </a>
     </span>
 
     <span>
-    <a class = 'stat' href='<%= followers_account_path(@account) %>'>
-        <h2><%= @account.followers.count %></h2>
-        <p>followers</p>
+    <a class='dib' href='<%= followers_account_path(@account) %>'>
+        <h2 class='link-hover-underline p3 dib ph2 mb0 primary'><%= @account.followers.count %></h2>
+        <p class='secondary p5'>followers</p>
     </a>
     </span>
 
-    <a class='stat' href='<%= favourites_account_path(@account) %>'>
-        <h2><%= @account.favourites.count %></h2>
-        <p>favourites</p>
+    <a class='dib' href='<%= favourites_account_path(@account) %>'>
+        <h2 class='link-hover-underline p3 dib ph2 mb0 primary'><%= @account.favourites.count %></h2>
+        <p class='secondary p5'>favourites</p>
     </a>
 </div>

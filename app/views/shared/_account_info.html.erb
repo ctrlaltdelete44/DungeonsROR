@@ -1,4 +1,4 @@
 	<% link_to gravatar_for(current_account.email, size: 50), current_account %>
-	<h2><%= current_account.display_name %></h2>
-	<%= link_to "View my profile", current_account, class: 'subtle-link inline' %>
-	<p class='subtle-text inline'> - <%= pluralize(current_account.microposts.count, "Micropost") %></p>
+	<h2 class='primary f2'><%= current_account.display_name %></h2>
+	<%= link_to "View my profile", current_account, class: 'link-hover-underline f5 secondary di' %>
+	<p class='secondary f5 di'> - <%= pluralize(current_account.microposts.count, "Micropost") %></p>

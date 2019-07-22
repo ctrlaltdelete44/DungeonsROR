@@ -1,31 +1,30 @@
-<div class='card' id="micropost-<%= micropost.id %>">
-	<div class='micropost-content'>
-		<h2><%= micropost.content %></h2>
+<div class='shadow-1 ma2 pa1 mw-30 fl br3 w-30 flex-row' id="micropost-<%= micropost.id %>">
+	<div class='h5'>
+		<p class='primary f3 tc'><%= micropost.content %></p>
 		<% if micropost.picture_new.attached? %>
 			<%= image_tag micropost.picture_new.variant(resize: '300x300') %>
 		<% end %>
 		
 	</div>
-		<%= link_to gravatar_for(micropost.account.email, size: 50),	  micropost.account, class: 'subtle-link' %>
-		<%= link_to micropost.account.display_name,					  micropost.account, class: 'subtle-link' %>
+		<%= link_to gravatar_for(micropost.account.email, size: 50),	  micropost.account %>
 		<p>
 			Posted <%= time_ago_in_words(micropost.created_at) %> ago.
 		</p>
 		<% if current_account?(micropost.account) %>
 			<%= link_to "Delete", micropost, method: :delete,
 											 data: { confirm: "are you sure?" },
-											 class: 'subtle-link' %>
+											 class: 'link-hover-underline secondary f5' %>
 		<% else %>
 			<% if current_account.favourited?(micropost) %>
         		<%= form_for(current_account.favourite_posts.find_by(micropost_id: micropost.id),
 					html: { method: :delete },
 					remote: true ) do |f| %>
-    				<%= f.submit "Unfavourite", class: 'subtle-submit'%>
+    				<%= f.submit "Unfavourite", class: 'link-hover-underline secondary f5'%>
 				<% end %>
     		<% else %>
 				<%= form_for(current_account.favourite_posts.build, remote: true) do |f| %>
     				<%= hidden_field_tag :micropost_id, micropost.id %>
-    				<%= f.submit "Favourite", class: 'subtle-submit'%>
+    				<%= f.submit "Favourite", class: 'link-hover-underline secondary f5'%>
 				<% end %>
     		<% end %>
 		<% end %>

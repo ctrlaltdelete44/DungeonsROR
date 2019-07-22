@@ -12,20 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require tachyons
  */
 @import url('https://fonts.googleapis.com/css?family=Exo:200');
 * {
     box-sizing: border-box
-}
-
-.debug_dump {
-    border-style: solid;
-    border-width: 2px;
-    width: 100%;
-    margin-top: 45px;
-    text-align: center;
-    background-color: #ffaaaa;
-    border-color: #ff4242;
 }
 
 .root {
@@ -34,13 +25,43 @@
     text-align: center;
 }
 
-.sticky-form {
-    width: 75%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.primary {
+    color: #730E15;
 }
 
-.inline {
+.secondary {
+    color: #ababab;
+}
+
+h1, h2, a, p, label, input[type=submit] {
+    font-family: 'Exo', sans-serif;
+}
+
+input[type=submit] {
+    cursor: pointer;
+}
+
+.link-hover-darken {
+    text-decoration: none;
+    opacity: 0.5;
+}
+
+.link-hover-darken:hover {
+    text-decoration: underline;
+    opacity: 1.0;
+}
+
+.link-hover-underline {
+    text-decoration: none;
+    background:none;
+    border:none;
+}
+
+.link-hover-underline:hover {
     display: inline;
+    text-decoration: underline;
+}
+
+.sticky {
+    position: sticky;
 }
