@@ -8,7 +8,7 @@ class Micropost < ApplicationRecord
   has_many :favouriters, through: :favourited_by, source: :account
 
   default_scope -> { order(created_at: :desc) }
-  mount_uploader :picture, PictureUploader
+  
   has_one_attached :picture_new
   validates :account_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
