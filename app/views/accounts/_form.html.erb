@@ -2,19 +2,18 @@
     <%= form_for(@account) do |f|%>
         <%= render 'shared/error_messages', object: f.object %>
 
-        <%= f.label :display_name %>
-        <%= f.text_field :display_name, class: 'text-input' %>
+        <%= f.label :display_name, class: 'primary center f4 pt5' %>
+        <%= f.text_field :display_name, class: 'text-input', class: 'w-100 f4 center tc mb4' %>
 
-         <%= f.label :email %>
-         <%= f.email_field :email, class: 'text-input' %>
+         <%= f.label :email, class: 'primary center f4 pt5' %>
+         <%= f.email_field :email, class: 'text-input', class: 'w-100 f4 center tc mb4' %>
 
-         <%= f.label :password %>
-        <%= f.password_field :password, class: 'text-input' %>
+         <%= f.label :password, class: 'primary center f4 pt5' %>
+        <%= f.password_field :password, class: 'text-input', class: 'w-100 f4 center tc mb4' %>
 
-         <%= f.label :password_confirmation, "Confirm password" %>
-         <%= f.password_field :password_confirmation, class: 'text-input' %>
+         <%= f.label :password_confirmation, "Confirm password", class: 'primary center f4 pt5' %>
+         <%= f.password_field :password_confirmation, class: 'text-input', class: 'w-100 f4 center tc mb2' %>
 
-          <%= f.submit yield(:button_text), class: 'submit'%>
+          <%= f.submit yield(:button_text), class: 'w-90 mt4 mb2 center f4'%>
     <% end %>
 </div>
-

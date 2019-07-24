@@ -5,7 +5,7 @@
     <%= render 'shared/stats'%>
     <% if @accounts.any? %>
         <% @accounts.each do |account| %>
-            <%= link_to gravatar_for(account.email, size: 30), account %>
+            <%= link_to gravatar_for(account.email, size: 3), account %>
         <% end %>
     <% end %>
 </div>

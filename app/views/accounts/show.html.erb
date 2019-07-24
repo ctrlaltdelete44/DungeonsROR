@@ -1,7 +1,7 @@
 <% provide(:title, @account.display_name) %>
 
 <div class='br2 shadow-1 pa1 right-2 w-25 fixed top-10'>
-	<%= gravatar_for @account.email, size: 80 %>
+	<%= gravatar_for @account.email, size: 4 %>
 	<h2 class='f3 primary'> <%= @account.display_name %> </h2>
 	<%= render 'shared/stats' %>
 	<%= render 'follow_form' if logged_in? %>

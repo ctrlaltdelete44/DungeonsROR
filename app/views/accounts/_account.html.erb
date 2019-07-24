@@ -1,7 +1,7 @@
 <div class='center w-20-ns w50 mv1'>
 	<ul class='list'>
 		
-		<li><%= gravatar_for account.email, size: 50 %></li>
+		<li><%= gravatar_for account.email, size: 3 %></li>
 		<li><%= link_to account.display_name, account, class: 'primary f4 link-hover-underline' %></li>
 		
 		<li><% if current_account.admin? && !current_account?(account) %>
