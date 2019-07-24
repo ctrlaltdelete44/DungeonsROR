@@ -12,13 +12,13 @@ and open the template in the editor.
     border-style: solid;
     border-width: 2px;
     width: auto;
-    margin: 0 auto;
+    margin: 0.25rem auto;
+    padding: 0.25rem;
     text-align: center;
 }
 
 .success-msg, .info-msg, .warning-msg, .danger-msg {
     margin: 0px;
-    font-family: Yu Gothic;
     font-size: 1.2rem;
 }
 
