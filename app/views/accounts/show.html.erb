@@ -2,19 +2,19 @@
 
 <div class='br2 shadow-1 pa1 right-2 w-25 fixed top-10'>
 	<%= gravatar_for @account.email, size: 80 %>
-	<h2> <%= @account.display_name %> </h2>
+	<h2 class='f3 primary'> <%= @account.display_name %> </h2>
 	<%= render 'shared/stats' %>
 	<%= render 'follow_form' if logged_in? %>
 	<% if current_account.admin? && current_account?(@account) %>
-		<%= link_to "Send test email", send_test_email_path %>
-		<%= link_to "Test migration", test_migration_path %>
+		<%= link_to "Send test email", send_test_email_path, class: 'link-hover-underline primary f5 mh1' %>
+		<%= link_to "Test migration", test_migration_path, class: 'link-hover-underline primary f5 mh1' %>
 	<% end %>
 	<%= will_paginate @microposts %>
 </div>
-<div class='w-75 flex-wrap justify-around items-stretch mt5'>
+<div class='w-75 flex-wrap justify-around items-stretch flex-ns mt5'>
 	<% if @account.microposts.any? %>
-		<div class='shadow-1 ma3 fl br3 w-100'>
-			<h2>Microposts (<%= @account.microposts.count %>)</h2>
+		<div class='shadow-1 mv2 center f4 primary br3 w-100'>
+			<p class='f2 primary mv1'>Microposts (<%= @account.microposts.count %>)</p>
 		</div>
 		<%= render @microposts %>
 	<% end %>

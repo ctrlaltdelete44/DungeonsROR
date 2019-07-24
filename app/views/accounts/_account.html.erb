@@ -1,10 +1,13 @@
-<div class='card'>
-		<span><%= gravatar_for account.email, size: 50 %></span>
-		<span><%= link_to account.display_name, account %></span>
+<div class='center w-20-ns w50 mv1'>
+	<ul class='list'>
 		
-		<% if current_account.admin? && !current_account?(account) %>
+		<li><%= gravatar_for account.email, size: 50 %></li>
+		<li><%= link_to account.display_name, account, class: 'primary f4 link-hover-underline' %></li>
+		
+		<li><% if current_account.admin? && !current_account?(account) %>
 			<%= link_to "Delete", account, method: :delete,
 										   data: { confirm: "Are you sure?" },
-										   class: 'subtle-link'%>
+										   class: 'secondary link-hover-underline'%></li>
 		<% end %>
+	</ul>
 </div>

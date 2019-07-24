@@ -1,24 +1,17 @@
 <% provide(:title, "Log In") %>
 
-<br>
-    <%= form_for(:session, url: login_path) do |f| %>
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.label :email, class: 'primary center f4 pt5' %>
+  <%= f.text_field :email, class: 'w-100 mb4 f4 center tc' %> <br>
+  
+  <%= f.label :password, class: 'primary center f4 mv2' %>
+ <%= link_to "(forgot password?)", new_password_reset_path, class: 'link secondary link-hover-underline f6' %>
+  <%= f.password_field :password, class: 'w-100 f4 center tc' %>
+  <%= f.label :remember_me do %>
+        <%= f.check_box :remember_me %>
+        <span class='secondary mb4'>Remember me on this computer</span>
+  <% end %>
+  <%= f.submit "Log in", class: 'w-90 mt4 mb2 center f4' %>
+<% end %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email, class: 'text-input' %> <br>
-      
-      <%= f.label :password %>
-	  <%= link_to "(forgot password?)", new_password_reset_path, class: 'subtle-link' %>
-      <%= f.password_field :password, class: 'text-input' %>
-
-	  
-
-      <%= f.label :remember_me do %>
-            <%= f.check_box :remember_me %>
-            <span>Remember me on this computer</span>
-      <% end %>
-
-      <%= f.submit "Log in", class: 'button-input' %>
-    <% end %>
-    <%= link_to "Sign Up", signup_path, class: "subtle-link" %>
-	
-
+<%= link_to "Sign Up", signup_path, class: "link secondary link-hover-underline f6 mt4" %>

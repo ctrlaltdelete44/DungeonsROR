@@ -29,11 +29,15 @@
     color: #730E15;
 }
 
+.bg-primary {
+    background-color: #730E15;
+}
+
 .secondary {
     color: #ababab;
 }
 
-h1, h2, a, p, label, input[type=submit] {
+h1, h2, a, p, label, input[type=submit], input[type=text], input[type=file], input[type=email] {
     font-family: 'Exo', sans-serif;
 }
 
