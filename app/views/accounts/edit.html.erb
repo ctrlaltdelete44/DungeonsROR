@@ -4,7 +4,6 @@
 
 
 <%= render 'form' %>
-<div class="gravatar_edit">
-	<%= gravatar_for @account.email %>
-	<a href="http://gravatar.com/emails" target="_blank">Change</a>
-</div>
+
+<%= gravatar_for @account.email, size: 3 %>
+<a href="http://gravatar.com/emails" class='primary link-hover-underline'>Change</a>

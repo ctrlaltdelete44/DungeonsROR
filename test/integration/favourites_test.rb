@@ -15,7 +15,7 @@ class FavouritesTest < ActionDispatch::IntegrationTest
     assert_match @account.favourites.count.to_s, response.body
 
     @account.favourites.each do |micropost|
-      assert_select 'h2', micropost.content
+      assert_select 'p', micropost.content
     end
   end
 

@@ -1,16 +1,16 @@
 <% provide(:title, @title) %>
-<div class='aside-container'>
+<div class='pa1 right-2 w-25 fixed top-10'>
     <%= render 'shared/account_info' %>
 
     <%= render 'shared/stats'%>
     <% if @accounts.any? %>
         <% @accounts.each do |account| %>
-            <%= link_to gravatar_for(account.email, size: 3), account %>
+            <%= link_to gravatar_for(account.email, size: 2), account %>
         <% end %>
     <% end %>
 </div>
 
-<div class='sticky-form'>
+<div class='w-75 flex-wrap justify-around items-stretch flex-ns mt5'>
     <% if @accounts.any? %>
         <%= render @accounts %>
         </div>

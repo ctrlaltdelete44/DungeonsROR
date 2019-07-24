@@ -4,9 +4,9 @@
 			<%= render 'shared/account_info' %>
 			<%= render 'shared/stats' %>
 			<%= render 'shared/micropost_form' %>
-			<%= will_paginate @feed_items %>
 		</div>
 		<%= render 'shared/feed' %>
+		<%= will_paginate @feed_items %>
 	<% else %>
 		<%= render 'default_home' %>
 	<% end %>

@@ -14,14 +14,13 @@ class AccountProfileTest < ActionDispatch::IntegrationTest
     get account_path(@account)
     assert_template 'accounts/show'
     assert_select 'title', full_title(@account.display_name)
-    assert_select 'h2', @account.display_name
+    assert_select 'h2.f3', @account.display_name
 
     assert_select 'a[href=?]', send_test_email_path, text: "Send test email"
     get send_test_email_path
     assert_not flash.empty?
     follow_redirect!
 
-    assert_select 'a.stat', count: 3
     assert_match @account.following.count.to_s, response.body
     assert_match @account.followers.count.to_s, response.body
 
