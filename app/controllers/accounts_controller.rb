@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
 class AccountsController < ApplicationController
-  before_action :logged_in_user, only: %i[index edit update destroy
-                                        following followers favourites
-                                        test_email ]
-  before_action :correct_user,  only: %i[edit update]
-  before_action :admin_user,    only: [:destroy]
+  # before_action :logged_in_user, only: %i[index edit update destroy
+  #                                       following followers favourites
+  #                                       test_email ]
+  # before_action :correct_user,  only: %i[edit update]
+  # before_action :admin_user,    only: [:destroy]
 
   def index
-    @accounts = Account.where(activated: true).paginate(page: params[:page])
+    @accounts = Account.paginate(page: params[:page])
   end
 
   def show
     @account = Account.find(params[:id])
     @microposts = @account.microposts.paginate(page: params[:page])
-    redirect_to(root_url) && return unless @account.activated == true
+    # redirect_to(root_url) && return unless @account.activated == true
   end
 
   def new
@@ -24,7 +24,7 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
     if @account.save
-      AccountMailer.account_activation(@account).deliver_now
+      # AccountMailer.account_activation(@account).deliver_now
       flash[:info] = 'Please check your email and activate you account.'
       redirect_to root_url
     else
@@ -75,7 +75,7 @@ class AccountsController < ApplicationController
 
   def send_test_email
     @account = current_account
-    SendTestEmailsJob.perform_later @account
+    # SendTestEmailsJob.perform_later @account
     flash[:info] = "Test email has been sent"
     redirect_to @account
   end
@@ -92,12 +92,12 @@ class AccountsController < ApplicationController
                                     :password, :password_confirmation)
   end
 
-  def correct_user
-    @account = Account.find(params[:id])
-    redirect_to(root_url) unless current_account?(@account)
-    end
+  # def correct_user
+  #   @account = Account.find(params[:id])
+  #   redirect_to(root_url) unless current_account?(@account)
+  #   end
 
-  def admin_user
-    redirect_to(root_url) unless current_account.admin?
-    end
+  # def admin_user
+  #   redirect_to(root_url) unless current_account.admin?
+  #   end
 end

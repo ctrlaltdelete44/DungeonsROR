@@ -11,9 +11,7 @@ Account.create!(display_name: 'ctrlaltdelete44',
                 email: 'admin@example.com',
                 password: 'password',
                 password_confirmation: 'password',
-                admin: true,
-                activated: true,
-                activated_at: Time.zone.now)
+                admin: true)
 
 99.times do |n|
   name = Faker::Name.name
@@ -22,9 +20,7 @@ Account.create!(display_name: 'ctrlaltdelete44',
   Account.create!(display_name: name,
                   email: email,
                   password: password,
-                  password_confirmation: password,
-                  activated: true,
-                  activated_at: Time.zone.now)
+                  password_confirmation: password)
 end
 
 accounts = Account.order(:created_at).take(6)

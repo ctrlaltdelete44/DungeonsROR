@@ -17,8 +17,8 @@ class Account < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
   before_save :downcase_email
-  before_create :create_activation_digest
-  attr_accessor :remember_token, :activation_token, :reset_token
+  # before_create :create_activation_digest
+  # attr_accessor :remember_token, :activation_token, :reset_token
 
   validates(:display_name, length: { maximum: 100 })
 
@@ -32,46 +32,51 @@ class Account < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
 
-  # returns hash digest of a string
-  def self.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                                                                    BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-  end
+#   # returns hash digest of a string
+   def self.digest(string)
+     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                                                                     BCrypt::Engine.cost
+     BCrypt::Password.create(string, cost: cost)
+   end
 
-  # generates token for remembering user
-  def self.new_token
-    SecureRandom.urlsafe_base64
-  end
+#   # generates token for remembering user
+#   def self.new_token
+#     SecureRandom.urlsafe_base64
+#   end
 
-  def remember
-    self.remember_token = Account.new_token
-    update_attribute(:remember_digest, Account.digest(remember_token))
-  end
+#   def remember
+#     self.remember_token = Account.new_token
+#     update_attribute(:remember_digest, Account.digest(remember_token))
+#   end
 
-  def authenticated?(attribute, token)
-    digest = send("#{attribute}_digest")
-    return false if digest.nil?
+#   def authenticated?(attribute, token)
+#     digest = send("#{attribute}_digest")
+#     return false if digest.nil?
 
-    BCrypt::Password.new(digest).is_password?(token)
- end
+#     BCrypt::Password.new(digest).is_password?(token)
+#  end
 
-  def forget
-    update_attribute(:remember_digest, nil)
-  end
+#   def forget
+#     update_attribute(:remember_digest, nil)
+#   end
 
-  def activate
-    update_columns(activated: true, activated_at: Time.zone.now)
-  end
+#   def activate
+#     update_columns(activated: true, activated_at: Time.zone.now)
+#   end
 
-  def create_reset_digest
-    self.reset_token = Account.new_token
-    update_columns(reset_digest: Account.digest(reset_token), reset_sent_at: Time.zone.now)
-  end
+#   def create_reset_digest
+#     self.reset_token = Account.new_token
+#     update_columns(reset_digest: Account.digest(reset_token), reset_sent_at: Time.zone.now)
+#   end
 
-  def password_reset_expired?
-    reset_sent_at < 2.hours.ago
-  end
+#   def password_reset_expired?
+#     reset_sent_at < 2.hours.ago
+#   end
+
+#   def create_activation_digest
+#     self.activation_token = Account.new_token
+#     self.activation_digest = Account.digest(activation_token)
+#   end
 
   def feed
     following_ids_sql = "SELECT followed_id FROM relationships
@@ -108,10 +113,5 @@ class Account < ApplicationRecord
 
   def downcase_email
     self.email = email.downcase
-  end
-
-  def create_activation_digest
-    self.activation_token = Account.new_token
-    self.activation_digest = Account.digest(activation_token)
   end
 end
