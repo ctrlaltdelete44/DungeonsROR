@@ -3,10 +3,11 @@
 require 'test_helper'
 
 class FollowingTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   def setup
     @account = accounts(:ferris)
     @other_account = accounts(:axel)
-    log_in_as(@account)
+    sign_in(@account)
   end
 
   test 'following page' do

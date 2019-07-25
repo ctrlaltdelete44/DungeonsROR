@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   resources :microposts,            only: %i[create destroy]
   resources :relationships,         only: %i[create destroy]
   resources :favourites,            only: %i[create destroy]
-  root 'static_pages#home'
+  root to: 'static_pages#home'
 end

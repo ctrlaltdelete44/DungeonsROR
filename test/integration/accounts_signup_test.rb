@@ -3,14 +3,15 @@
 require 'test_helper'
 
 class AccountsSignupTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   def setup
     ActionMailer::Base.deliveries.clear
   end
 
   test 'invalid signup information' do
-    get signup_path
+    get new_account_registration_path
     assert_no_difference 'Account.count' do
-      post signup_path, params: { account: { display_name: '',
+      post new_account_registration_path, params: { account: { display_name: '',
                                              email: 'user@invalid',
                                              password: 'egg',
                                              password_confirmation: 'boy' } }
@@ -23,9 +24,9 @@ class AccountsSignupTest < ActionDispatch::IntegrationTest
   end
 
   test 'valid signup information with activation' do
-    get signup_path
+    get new_account_registration_path
     assert_difference 'Account.count', 1 do
-      post accounts_path, params: { account: { display_name: 'My display name',
+      post new_account_registration_path, params: { account: { display_name: 'My display name',
                                                email: 'user@example.com',
                                                password: 'password',
                                                password_confirmation: 'password' } }
@@ -34,7 +35,7 @@ class AccountsSignupTest < ActionDispatch::IntegrationTest
     account = assigns(:account)
     assert_not account.activated?
     # try to log in before activation
-    log_in_as account
+    sign_in account
     assert_not is_logged_in?
 
     # invalid activation link

@@ -4,10 +4,11 @@ require 'test_helper'
 
 class AccountProfileTest < ActionDispatch::IntegrationTest
   include ApplicationHelper
-
+  include Devise::Test::IntegrationHelpers
+  
   def setup
     @account = accounts(:ferris)
-    log_in_as @account
+    sign_in @account
   end
 
   test 'profile display' do

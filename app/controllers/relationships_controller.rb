@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RelationshipsController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_account!
 
   def create
     account = Account.find(params[:followed_id])

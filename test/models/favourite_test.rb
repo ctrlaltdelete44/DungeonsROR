@@ -3,6 +3,7 @@
 require 'test_helper'
 
 class FavouriteTest < ActiveSupport::TestCase
+  include Devise::Test::IntegrationHelpers
   def setup
     @relationship = Favourite.new(account_id: accounts(:ferris).id,
                                   micropost_id: microposts(:bacon).id)

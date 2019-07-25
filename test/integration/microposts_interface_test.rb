@@ -3,13 +3,14 @@
 require 'test_helper'
 
 class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   def setup
     @account = accounts(:ferris)
   end
 
   test 'micropost interface' do
     # setup
-    log_in_as @account
+    sign_in @account
     get root_path
     assert_select 'div.pagination'
     assert_select 'input[type=file]'
@@ -45,13 +46,13 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
   end
 
   test 'micropost sidebar count' do
-    log_in_as @account
+    sign_in @account
     get root_path
     assert_match "#{@account.microposts.count} Microposts", response.body
 
     # account with 0 microposts
     other_account = accounts(:malcolm)
-    log_in_as other_account
+    sign_in other_account
     get root_path
 
     assert_match '0 Microposts', response.body

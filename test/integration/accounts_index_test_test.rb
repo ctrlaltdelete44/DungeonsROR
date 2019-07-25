@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-
 class AccountsIndexTestTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   def setup
     @admin = accounts(:ferris)
     @non_admin = accounts(:axel)
   end
 
   test 'index as admin using pagination and delete links' do
-    log_in_as @admin
+    sign_in @admin
     get accounts_path
     assert_template 'accounts/index'
     assert_select 'div.pagination'
@@ -26,7 +26,7 @@ class AccountsIndexTestTest < ActionDispatch::IntegrationTest
   end
 
   test 'index as non-admin' do
-    log_in_as @non_admin
+    sign_in @non_admin
     get accounts_path
     assert_select 'a', text: 'delete', count: 0
   end

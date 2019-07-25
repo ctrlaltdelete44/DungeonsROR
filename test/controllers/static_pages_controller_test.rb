@@ -3,6 +3,7 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   def setup
     @base_title = 'Dungeons'
   end

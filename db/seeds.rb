@@ -11,7 +11,8 @@ Account.create!(display_name: 'ctrlaltdelete44',
                 email: 'admin@example.com',
                 password: 'password',
                 password_confirmation: 'password',
-                admin: true)
+                admin: true,
+                confirmed_at: Time.zone.now)
 
 99.times do |n|
   name = Faker::Name.name

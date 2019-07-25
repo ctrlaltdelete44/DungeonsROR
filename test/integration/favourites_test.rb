@@ -3,10 +3,11 @@
 require 'test_helper'
 
 class FavouritesTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   def setup
     @account = accounts(:ferris)
     @micropost = microposts(:hello)
-    log_in_as @account
+    sign_in @account
   end
 
   test 'favourites page' do

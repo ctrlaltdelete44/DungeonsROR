@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-
 class RelationshipTest < ActiveSupport::TestCase
+  include Devise::Test::IntegrationHelpers
   def setup
     @relationship = Relationship.new(follower_id: accounts(:ferris).id,
                                      followed_id: accounts(:axel).id)

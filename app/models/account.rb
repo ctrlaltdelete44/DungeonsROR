@@ -34,11 +34,7 @@ class Account < ApplicationRecord
                     uniqueness: { case_sensitive: false })
 
   # has_secure_password
-  validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
-
-  def activated?
-    confirmed_at.past?
-  end
+  validates :password, presence: true, allow_nil: true
 # #   # returns hash digest of a string
 #    def self.digest(string)
 #      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

@@ -3,13 +3,13 @@
 require 'test_helper'
 
 class AccountsEditTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   def setup
     @account = accounts(:ferris)
+    sign_in @account
   end
 
   test 'unsuccessful edit' do
-    log_in_as(@account)
-
     get edit_account_path(@account)
     assert_template 'accounts/edit'
     patch account_path(@account), params: { account: { display_name: '',
@@ -20,10 +20,8 @@ class AccountsEditTest < ActionDispatch::IntegrationTest
     assert_select 'h2.danger-msg', 'The form could not be saved due to the following 3 errors'
   end
 
-  test 'successful edit with friendly forwarding' do
+  test 'successful edit' do
     get edit_account_path(@account)
-    log_in_as(@account)
-    assert_redirected_to edit_account_url(@account)
 
     display_name = 'Captain Ya Boi'
     email = 'email@gmail.com'
@@ -31,6 +29,7 @@ class AccountsEditTest < ActionDispatch::IntegrationTest
                                                        email: email,
                                                        password: '',
                                                        password_confirmation: '' } }
+    byebug
     # test ui behaves correctly
     assert_not flash.empty?
     assert_redirected_to @account

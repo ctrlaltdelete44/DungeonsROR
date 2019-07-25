@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AccountsController < ApplicationController
-  before_action :logged_in_user,  only: %i[index edit update destroy
+  before_action :authenticate_account!,  only: %i[index edit update destroy
                                               following followers favourites
                                               test_email ]
   before_action :correct_user,        only: %i[edit update]
@@ -14,7 +14,7 @@ class AccountsController < ApplicationController
   def show
     @account = Account.find(params[:id])
     @microposts = @account.microposts.paginate(page: params[:page])
-    redirect_to(root_url) && return unless @account.activated?
+    redirect_to(root_url) && return unless @account.confirmed?
   end
 
   def new
@@ -24,7 +24,6 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
     if @account.save
-      # AccountMailer.account_activation(@account).deliver_now
       flash[:info] = 'Please check your email and activate you account.'
       redirect_to root_url
     else
@@ -38,7 +37,9 @@ class AccountsController < ApplicationController
 
   def update
     @account = Account.find(params[:id])
+    update_params
     if @account.update_attributes(account_params)
+      sign_in(@account, :bypass => true)
       flash[:success] = 'Profile updated'
       redirect_to @account
     else
@@ -90,6 +91,13 @@ class AccountsController < ApplicationController
   def account_params
     params.require(:account).permit(:display_name, :email,
                                     :password, :password_confirmation)
+  end
+
+  def update_params
+    if params[:account][:password].blank? && params[:account][:password_confirmation].blank?
+      params[:account].delete(:password)
+      params[:account].delete(:password_confirmation)
+    end
   end
 
   def correct_user

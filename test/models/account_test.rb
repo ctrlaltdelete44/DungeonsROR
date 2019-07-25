@@ -3,6 +3,7 @@
 require 'test_helper'
 
 class AccountTest < ActiveSupport::TestCase
+  include Devise::Test::IntegrationHelpers
   def setup
     @account = Account.new(display_name: 'Example', email: 'account@example.com',
                            password: 'password1', password_confirmation: 'password1')
@@ -66,12 +67,8 @@ class AccountTest < ActiveSupport::TestCase
   end
 
   test 'password should have minimum length' do
-    @account.password = @account.password_confirmation = 'a' * 7
+    @account.password = @account.password_confirmation = 'a' * 5
     assert_not @account.valid?
-  end
-
-  test 'authenticated? should return false for a user with nil digest' do
-    assert_not @account.authenticated?(:remember, '')
   end
 
   test 'associated microposts should be destroyed' do

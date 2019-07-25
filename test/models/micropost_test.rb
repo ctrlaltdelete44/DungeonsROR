@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-
 class MicropostTest < ActiveSupport::TestCase
+  include Devise::Test::IntegrationHelpers
   def setup
     @account = accounts(:ferris)
     @micropost = @account.microposts.build(content: 'Lorem ipsum')

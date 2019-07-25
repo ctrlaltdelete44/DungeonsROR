@@ -2,30 +2,30 @@
 ferris:
         display_name: Ferris Bueller
         email: ferrisbueller@gmail.com
-        password_digest: <%= Account.digest('password') %>
+        encrypted_password: <%= Devise::Encryptor.digest(Account, 'password') %>
         admin: true
-        activated: true
-        activated_at: <%= Time.zone.now %>
+        confirmed_at: <%= Time.zone.now - 1.hour %>
+        confirmation_sent_at: <%= Time.zone.now - 2.hours %>
 
 axel:
         display_name: axel
         email: axel@example.com
-        password_digest: <%= Account.digest('password') %>
-        activated: true
-        activated_at: <%= Time.zone.now %>
+        encrypted_password: <%= Devise::Encryptor.digest(Account, 'password') %>
+        confirmed_at: <%= Time.zone.now - 1.hour %>
+        confirmation_sent_at: <%= Time.zone.now - 2.hours %>
 
 malcolm:
         display_name: malcolm
         email: mal@example.com
-        password_digest: <%= Account.digest('password') %>
-        activated: true
-        activated_at: <%= Time.zone.now %>
+        encrypted_password: <%= Devise::Encryptor.digest(Account, 'password') %>
+        confirmed_at: <%= Time.zone.now - 1.hour %>
+        confirmation_sent_at: <%= Time.zone.now - 2.hours %>
 
 <% 35.times do |n| %>
 account_<%= n %>:
     display_name: <%= "Account #{n}" %>
     email: <%= "account-@example.com" %>
-    password_digest: <%= Account.digest('password') %>
-    activated: true
-    activated_at: <%= Time.zone.now %>
+    encrypted_password: <%= Devise::Encryptor.digest(Account, 'password') %>
+    confirmed_at: <%= Time.zone.now - 1.hour %>
+    confirmation_sent_at: <%= Time.zone.now - 2.hours %>
 <% end %>
