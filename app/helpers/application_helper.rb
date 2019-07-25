@@ -9,4 +9,9 @@ module ApplicationHelper
       page_title + ' | ' + base_title
     end
   end
+
+  # returns boolean if whether current account matches given account
+  def current_account?(account)
+    account == current_account
+  end
 end

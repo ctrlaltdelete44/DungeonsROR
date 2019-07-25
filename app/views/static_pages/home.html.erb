@@ -1,5 +1,5 @@
 <% provide(:title, "Dashboard") %>
-	<% if logged_in? %>
+	<% if account_signed_in? %>
 		<div class='fl right-2 w-25 fixed top-10'>
 			<%= render 'shared/account_info' %>
 			<%= render 'shared/stats' %>

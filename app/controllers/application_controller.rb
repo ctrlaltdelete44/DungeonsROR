@@ -5,11 +5,10 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # def logged_in_user
-  #   unless account_signed_in?
-  #     store_location
-  #     flash[:danger] = 'Please log in to access that page'
-  #     redirect_to login_url
-  #   end
-  # end
+  def logged_in_user
+    unless account_signed_in?
+      flash[:danger] = 'Please log in to access that page'
+      redirect_to new_account_session_path
+    end
+  end
 end

@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
-  get '/signup', to: 'accounts#new'
-  post '/signup', to: 'accounts#create'
+  devise_for :accounts
   get '/help', to: 'static_pages#help'
   get '/about', to: 'static_pages#about'
   get 'send_test_email', to: 'accounts#send_test_email'

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class MicropostsController < ApplicationController
-  # before_action :logged_in_user, only: %i[create destroy]
-  # before_action :correct_account, only: :destroy
+  before_action :logged_in_user, only: %i[create destroy]
+  before_action :correct_user, only: :destroy
 
   def create
     @micropost = current_account.microposts.build(micropost_params)
@@ -27,8 +27,11 @@ class MicropostsController < ApplicationController
     params.require(:micropost).permit(:content, :picture_new)
     end
 
-  def correct_account
-    @micropost = current_account.microposts.find_by(id: params[:id])
-    redirect_to root_url if @micropost.nil?
-    end
+  def correct_user
+    @account = Account.find(params[:id])
+      unless current_account == @account
+        flash[:warning] = "You do not have permissions to delete this"
+        redirect_to(root_url)
+      end
+  end
 end

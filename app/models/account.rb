@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Account < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :confirmable
   has_many :microposts, dependent: :destroy
   has_many :favourite_posts, class_name: 'Favourite',
                              foreign_key: 'account_id',
@@ -29,15 +33,18 @@ class Account < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false })
 
-  has_secure_password
+  # has_secure_password
   validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
 
-#   # returns hash digest of a string
-   def self.digest(string)
-     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                                                                     BCrypt::Engine.cost
-     BCrypt::Password.create(string, cost: cost)
-   end
+  def activated?
+    confirmed_at.past?
+  end
+# #   # returns hash digest of a string
+#    def self.digest(string)
+#      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+#                                                                                                      BCrypt::Engine.cost
+#      BCrypt::Password.create(string, cost: cost)
+#    end
 
 #   # generates token for remembering user
 #   def self.new_token
