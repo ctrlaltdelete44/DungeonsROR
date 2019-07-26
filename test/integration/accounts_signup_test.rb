@@ -18,7 +18,7 @@ class AccountsSignupTest < ActionDispatch::IntegrationTest
 
     assert_select 'div#error_explanation', count: 1
     assert_select 'li', "Password confirmation doesn't match Password"
-    assert_select 'li', "Password is too short (minimum is 6 characters)"
+    assert_select 'li', "Password is too short (minimum is 8 characters)"
     assert_select 'li', "Email is invalid"
   end
 

@@ -42,7 +42,6 @@ class AccountsController < ApplicationController
       flash[:success] = 'Profile updated'
       unless @account.email == params[:account][:email]
         flash[:info] = 'You will need to confirm this email address before it can update'
-        @account.send_reconfirmation_instructions
         redirect_to root_url
       else
         bypass_sign_in(@account)
