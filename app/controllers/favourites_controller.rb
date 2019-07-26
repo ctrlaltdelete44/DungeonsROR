@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class FavouritesController < ApplicationController
-  before_action :authenticate_account!
-
   def create
     micropost = Micropost.find(params[:micropost_id])
     current_account.favourite(micropost)

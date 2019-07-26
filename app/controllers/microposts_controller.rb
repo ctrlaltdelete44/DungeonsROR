@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class MicropostsController < ApplicationController
-  before_action :authenticate_account!
-  before_action :correct_user, only: :destroy
-
+  before_action :correct_user, except: :create
+  
   def create
     @micropost = current_account.microposts.build(micropost_params)
     if @micropost.save

@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class AccountsController < ApplicationController
-  before_action :authenticate_account!,  only: %i[index edit update destroy
-                                              following followers favourites
-                                              test_email ]
-  before_action :correct_user,        only: %i[edit update]
-  before_action :admin_user,          only:   [:destroy]
+  skip_before_action :authenticate_account!, only: [:new, :create]
+
+  before_action :correct_user,  except: [:index, :show, :new, :create, :destroy, :favourites, :send_test_email]
+  before_action :admin_user,    except: [:index, :show, :new, :create, :edit, :update, :following, :followers, :favourites]
 
   def index
     @accounts = Account.paginate(page: params[:page])
@@ -14,7 +13,7 @@ class AccountsController < ApplicationController
   def show
     @account = Account.find(params[:id])
     @microposts = @account.microposts.paginate(page: params[:page])
-    redirect_to(root_url) && return unless @account.confirmed?
+    redirect_to(root_url) && return unless current_account.confirmed?
   end
 
   def new
