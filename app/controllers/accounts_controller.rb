@@ -39,9 +39,15 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
     update_params
     if @account.update_attributes(account_params)
-      sign_in(@account, :bypass => true)
       flash[:success] = 'Profile updated'
-      redirect_to @account
+      unless @account.email == params[:account][:email]
+        flash[:info] = 'You will need to confirm this email address before it can update'
+        @account.send_reconfirmation_instructions
+        redirect_to root_url
+      else
+        bypass_sign_in(@account)
+        redirect_to @account
+      end
     else
       render 'edit'
     end

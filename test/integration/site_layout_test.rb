@@ -24,8 +24,9 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   test 'layout links logged in' do
     get new_account_session_path
     sign_in @account
+    post account_session_path
+    assert_redirected_to root_url
     follow_redirect!
-    assert_redirected_to @account
 
     assert_select 'a[href=?]', root_path
     assert_select 'a[href=?]', about_path
