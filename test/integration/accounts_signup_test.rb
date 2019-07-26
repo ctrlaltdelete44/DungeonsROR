@@ -11,45 +11,36 @@ class AccountsSignupTest < ActionDispatch::IntegrationTest
   test 'invalid signup information' do
     get new_account_registration_path
     assert_no_difference 'Account.count' do
-      post new_account_registration_path, params: { account: { display_name: '',
-                                             email: 'user@invalid',
+      post account_registration_path, params: { account: { email: 'user@invalid',
                                              password: 'egg',
                                              password_confirmation: 'boy' } }
     end
-    assert_template 'accounts/new'
 
-    assert_select 'p.danger-msg', 'Email is invalid'
-    assert_select 'p.danger-msg', "Password confirmation doesn't match Password"
-    assert_select 'p.danger-msg', 'Password is too short (minimum is 8 characters)'
+    assert_select 'div#error_explanation', count: 1
+    assert_select 'li', "Password confirmation doesn't match Password"
+    assert_select 'li', "Password is too short (minimum is 6 characters)"
+    assert_select 'li', "Email is invalid"
   end
 
   test 'valid signup information with activation' do
     get new_account_registration_path
     assert_difference 'Account.count', 1 do
-      post new_account_registration_path, params: { account: { display_name: 'My display name',
-                                               email: 'user@example.com',
+      post account_registration_path, params: { account: { email: 'user@example.com',
                                                password: 'password',
                                                password_confirmation: 'password' } }
     end
     assert_equal 1, ActionMailer::Base.deliveries.size
     account = assigns(:account)
-    assert_not account.activated?
+    assert_not account.confirmed?
     # try to log in before activation
     sign_in account
-    assert_not is_logged_in?
-
-    # invalid activation link
-    get edit_account_activation_path('invalid token', email: account.email)
-    assert_not is_logged_in?
-
-    # valid token, wrong Email
-    get edit_account_activation_path(account.activation_token, email: 'wrong')
-    assert_not is_logged_in?
-
-    # valid activation
-    get edit_account_activation_path(account.activation_token, email: account.email)
+    #redirects to root, then back to login
+    assert_redirected_to root_url
     follow_redirect!
-    assert_template 'accounts/show'
-    assert is_logged_in?
+    assert_redirected_to new_account_session_path
+    follow_redirect!
+    assert_select 'p.alert-msg', 'You have to confirm your email address before continuing.'
+
+    #activation managed by devise
   end
 end
