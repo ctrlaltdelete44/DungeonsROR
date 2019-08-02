@@ -1,0 +1,26 @@
+<% provide(:title, 'Register') %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email, class: 'primary center f4 pt5' %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'w-100 f4 center tc mb4' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, class: 'primary center f4 pt5' %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: 'w-100 f4 center tc mb4' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, class: 'primary center f4 pt5' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'w-100 f4 center tc mb4' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class: 'w-90 mt4 mb2 center f4' %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
