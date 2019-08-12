@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class RelationshipsController < ApplicationController
-
   def create
     account = Account.find(params[:followed_id])
     current_account.follow(account)

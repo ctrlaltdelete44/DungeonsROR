@@ -38,8 +38,6 @@ class AccountsEditTest < ActionDispatch::IntegrationTest
     assert_select 'p.success-msg', 'Profile updated'
     assert_select 'h1', display_name
 
-    
-
     # test data behaves correctly
     @account.reload
     assert_equal display_name, @account.display_name
@@ -69,15 +67,15 @@ class AccountsEditTest < ActionDispatch::IntegrationTest
     assert_equal email, @account.email
   end
 
-  test "successful edit with email changing" do
+  test 'successful edit with email changing' do
     get edit_account_path @account
-  
+
     email = 'a@example.com'
     display_name = @account.display_name
     patch account_path(@account), params: { account: { display_name: display_name,
                                                        email: email,
                                                        password: '',
-                                                       password_confirmation: ''} }
+                                                       password_confirmation: '' } }
 
     follow_redirect!
     assert_select 'p.success-msg', 'Profile updated'
@@ -87,6 +85,5 @@ class AccountsEditTest < ActionDispatch::IntegrationTest
     @account.reload
     assert_equal email, @account.unconfirmed_email
     assert_equal display_name, @account.display_name
-
   end
 end

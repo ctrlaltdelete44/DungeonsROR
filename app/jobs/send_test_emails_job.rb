@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SendTestEmailsJob < ApplicationJob
   queue_as :mailer
 

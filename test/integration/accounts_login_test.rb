@@ -24,11 +24,11 @@ class AccountsLoginTest < ActionDispatch::IntegrationTest
     get new_account_session_path
     assert_template 'sessions/new'
     post account_session_path, params: { account: { email: @account.email,
-                                          password: 'password' } } 
+                                                    password: 'password' } }
     assert_redirected_to root_url
-    
+
     follow_redirect!
-    assert_select 'p', "Signed in successfully."
+    assert_select 'p', 'Signed in successfully.'
     assert_select 'h2', @account.display_name
     assert_select 'a[href=?]', new_account_session_path, count: 0
     assert_select 'a[href=?]', destroy_account_session_path

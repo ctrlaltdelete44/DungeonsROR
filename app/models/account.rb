@@ -22,10 +22,7 @@ class Account < ApplicationRecord
 
   validates(:display_name, length: { maximum: 100 })
 
-
-   validates(:email, length: { maximum: 255 })
-
-
+  validates(:email, length: { maximum: 255 })
 
   def feed
     following_ids_sql = "SELECT followed_id FROM relationships
@@ -57,5 +54,4 @@ class Account < ApplicationRecord
   def favourited?(micropost)
     favourite_ids.include?(micropost.id)
   end
-
 end
