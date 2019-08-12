@@ -1,0 +1,47 @@
+<% provide(:title, 'Edit Account') %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class='field'>
+    <%= f.label :display_name, class: 'primary center f4 pt5' %>
+    <%= f.text_field :display_name, class: 'w-100 f4 center tc mb4' %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :email, class: 'primary center f4 pt5' %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'w-100 f4 center tc mb4' %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password, class: 'primary center f4 pt5' %> <i class='secondary f5'>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: 'w-100 f4 center tc mb4' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, class: 'primary center f4 pt5' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'w-100 f4 center tc mb4' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password, class: 'primary center f4 pt5' %> <i class='secondary f5'>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: 'w-100 f4 center tc mb4' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update", class: 'w-90 mb2 center f4' %>
+  </div>
+<% end %>
+
+<a href="http://gravatar.com/emails"><%= gravatar_for @account.email, size: 3 %></a>
+<a href="http://gravatar.com/emails" class='primary link-hover-underline'>Change gravatar</a>
+
+<p class='center primary f4 mt4'>Unhappy?</p>
+
+<%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'w-90 mb2 center f4' %>
+
+<%= link_to "Back", :back, class: 'secondary center f5' %>

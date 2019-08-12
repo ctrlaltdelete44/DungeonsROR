@@ -6,8 +6,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
 gem 'pg'
+gem 'rails', '~> 5.2.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -27,15 +27,15 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'delayed_job_active_record'
-gem 'tachyons-rails'
-gem "aws-sdk-s3", require: false
-gem 'fog-aws', '~> 3.5.1', require: 'fog/aws'
-gem 'faker', '~> 1.7.3'
-gem 'mini_magick', '~> 4.7.0'
-gem 'will_paginate', '~> 3.1.6'
+gem 'aws-sdk-s3', require: false
 gem 'bootstrap-will_paginate'
+gem 'delayed_job_active_record'
 gem 'devise'
+gem 'faker', '~> 1.7.3'
+gem 'fog-aws', '~> 3.5.1', require: 'fog/aws'
+gem 'mini_magick', '~> 4.7.0'
+gem 'tachyons-rails'
+gem 'will_paginate', '~> 3.1.6'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -65,7 +65,6 @@ group :test do
 end
 
 group :production do
-  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

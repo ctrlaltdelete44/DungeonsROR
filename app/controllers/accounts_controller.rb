@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class AccountsController < ApplicationController
-  skip_before_action :authenticate_account!, only: [:new, :create]
+  skip_before_action :authenticate_account!, only: %i[new create]
 
-  before_action :correct_user,  except: [:index, :show, :new, :create, :destroy, :favourites, :send_test_email]
-  before_action :admin_user,    except: [:index, :show, :new, :create, :edit, :update, :following, :followers, :favourites]
+  before_action :correct_user,  except: %i[index show new create destroy favourites send_test_email]
+  before_action :admin_user,    except: %i[index show new create edit update following followers favourites]
 
   def index
     @accounts = Account.paginate(page: params[:page])
@@ -39,12 +39,12 @@ class AccountsController < ApplicationController
     update_params
     if @account.update_attributes(account_params)
       flash[:success] = 'Profile updated'
-      unless @account.email == params[:account][:email]
-        flash[:info] = 'You will need to confirm this email address before it can update'
-        redirect_to root_url
-      else
+      if @account.email == params[:account][:email]
         bypass_sign_in(@account)
         redirect_to @account
+      else
+        flash[:info] = 'You will need to confirm this email address before it can update'
+        redirect_to root_url
       end
     else
       render 'edit'
@@ -81,7 +81,7 @@ class AccountsController < ApplicationController
   def send_test_email
     @account = current_account
     SendTestEmailsJob.perform_later @account
-    flash[:info] = "Test email has been sent"
+    flash[:info] = 'Test email has been sent'
     redirect_to @account
   end
 
@@ -105,9 +105,9 @@ class AccountsController < ApplicationController
   end
 
   def correct_user
-  @account = Account.find(params[:id])
+    @account = Account.find(params[:id])
     unless current_account == @account
-      flash[:warning] = "You do not have access to this page"
+      flash[:warning] = 'You do not have access to this page'
       redirect_to root_url
     end
   end

@@ -4,7 +4,7 @@
     <%= link_to "Help", help_path, class: "white link-hover-darken f2"  %>
     <% if account_signed_in? %>
         <%= link_to "Profile", current_account, class: "white link-hover-darken f2" %>
-        <%= link_to "Settings", edit_account_path(current_account), class: "white link-hover-darken f2" %>
+        <%= link_to "Settings", edit_account_registration_path(current_account), class: "white link-hover-darken f2" %>
         <%= link_to "Accounts", accounts_path, class: "white link-hover-darken f2" %>
         <%= link_to "Log out", destroy_account_session_path, method: :delete, class: "white link-hover-darken f2" %>
     <% else %>

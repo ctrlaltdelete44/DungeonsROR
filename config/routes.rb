@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   get 'send_test_email', to: 'accounts#send_test_email'
   get 'test_migration', to: 'accounts#test_migration'
-  
+
   resources :accounts do
     member do
       get :following, :followers, :favourites

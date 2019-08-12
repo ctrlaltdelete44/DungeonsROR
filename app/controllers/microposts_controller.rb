@@ -2,7 +2,7 @@
 
 class MicropostsController < ApplicationController
   before_action :correct_user, except: :create
-  
+
   def create
     @micropost = current_account.microposts.build(micropost_params)
     if @micropost.save

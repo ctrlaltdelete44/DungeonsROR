@@ -5,7 +5,7 @@ require 'test_helper'
 class AccountProfileTest < ActionDispatch::IntegrationTest
   include ApplicationHelper
   include Devise::Test::IntegrationHelpers
-  
+
   def setup
     @account = accounts(:ferris)
     sign_in @account
@@ -17,7 +17,7 @@ class AccountProfileTest < ActionDispatch::IntegrationTest
     assert_select 'title', full_title(@account.display_name)
     assert_select 'h2.f3', @account.display_name
 
-    assert_select 'a[href=?]', send_test_email_path, text: "Send test email"
+    assert_select 'a[href=?]', send_test_email_path, text: 'Send test email'
     get send_test_email_path
     assert_not flash.empty?
     follow_redirect!
