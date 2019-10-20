@@ -2,7 +2,7 @@
 	<%= render 'shared/error_messages', object: f.object %>
 	<%= f.text_area(:content, placeholder: "Compose new micropost...", :size => '20x5', class: 'db border-box hover-black w-75 center measure ba b--black-20 pa2 br2 mb2') %>
 	<%= f.submit "Post", class: "w-50 mt4 center f4" %>
-	<%= f.file_field :picture_new, accept: 'image/jpeg, image/giv, image/png', class: 'w-50 mt1 mb2 center f6' %>
+	<%= f.file_field :picture_new, accept: 'image/jpeg, image/gif, image/png', class: 'w-50 mt1 mb2 center f6' %>
 
 <% end %>
 
