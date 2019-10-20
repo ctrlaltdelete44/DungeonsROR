@@ -5,7 +5,6 @@
 	<h2 class='f3 primary'> <%= @account.display_name %> </h2>
 	<%= render 'shared/stats' %>
 	<%= render 'follow_form' if account_signed_in? %>
-	<%= current_account.display_name %>
 	<% if current_account.admin? && current_account?(@account) %>
 		<%= link_to "Send test email", send_test_email_path, class: 'link-hover-underline primary f5 mh1' %>
 		<%= link_to "Test migration", test_migration_path, class: 'link-hover-underline primary f5 mh1' %>
