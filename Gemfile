@@ -33,7 +33,7 @@ gem 'delayed_job_active_record'
 gem 'devise'
 gem 'faker', '~> 1.7.3'
 gem 'fog-aws', '~> 3.5.1', require: 'fog/aws'
-gem 'mini_magick', '~> 4.7.0'
+gem 'mini_magick', '~> 4.9.4'
 gem 'tachyons-rails'
 gem 'will_paginate', '~> 3.1.6'
 
